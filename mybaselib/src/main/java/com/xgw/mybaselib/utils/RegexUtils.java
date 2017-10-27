@@ -1,6 +1,6 @@
 package com.xgw.mybaselib.utils;
 
-import com.blankj.utilcode.constant.RegexConstants;
+import com.xgw.mybaselib.constant.RegexConstants;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -5,8 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.xgw.mybaselib.AppManager;
+import com.xgw.mybaselib.R;
 import com.xgw.mybaselib.utils.ToastUtils;
 
 import org.greenrobot.eventbus.EventBus;
@@ -20,15 +27,16 @@ import io.reactivex.disposables.CompositeDisposable;
  * activity基类
  */
 
-public abstract class BaseActivity extends AppCompatActivity implements BaseViewInterface{
-
-
+public abstract class BaseActivity extends AppCompatActivity implements BaseViewInterface {
     /**
      * 获得布局id
      *
      * @return
      */
     protected abstract int getLayoutId();
+
+
+    protected Toolbar toolbar;
 
     protected CompositeDisposable disposables = new CompositeDisposable();
 
@@ -70,6 +78,84 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
             disposables.clear();
         }
         EventBus.getDefault().unregister(this);
+    }
+
+    /**
+     * 设置只有标题和返回按钮（如果有）的标题栏
+     *
+     * @param hasBack
+     * @param title
+     */
+    public void setToolbar(boolean hasBack, String title) {
+        initToolbar(hasBack, title);
+    }
+
+    /**
+     * 设置右边有ImageView的标题栏
+     *
+     * @param hasBack
+     * @param title
+     * @param imgResId
+     */
+    public void setToolbarRightIv(boolean hasBack, String title, int imgResId) {
+        initToolbar(hasBack, title);
+        ImageView image = (ImageView) findViewById(R.id.image);
+        image.setImageResource(imgResId);
+    }
+
+    /**
+     * 设置右边有TextView的标题栏
+     *
+     * @param hasBack
+     * @param title
+     * @param tvTitle
+     */
+    public void setToolbarRightTv(boolean hasBack, String title, String tvTitle) {
+        initToolbar(hasBack, title);
+        TextView rightTv = (TextView) findViewById(R.id.right_tv);
+        rightTv.setText(tvTitle);
+    }
+
+    /**
+     * 设置右边有button的标题栏
+     *
+     * @param hasBack
+     * @param title
+     * @param btnTitle
+     */
+    public void setToolbarRightBtn(boolean hasBack, String title, String btnTitle) {
+        initToolbar(hasBack, title);
+        Button rightBtn = (Button) findViewById(R.id.right_btn);
+        rightBtn.setText(btnTitle);
+    }
+
+    /**
+     * 初始化标题信息
+     *
+     * @param hasBack
+     * @param title
+     */
+    private void initToolbar(boolean hasBack, String title) {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (TextUtils.isEmpty(title)) {
+            title = getString(R.string.app_name);
+        }
+        toolbar.setTitle(title);
+        setSupportActionBar(toolbar);   //该设置要放setTitle之后，否则setTitle会无效
+
+        setSupportActionBar(toolbar);   //该设置要放setTitle之后，否则setTitle会无效
+
+        if (hasBack) {
+            ImageView back = (ImageView) findViewById(R.id.toolbar_back);
+            back.setVisibility(View.VISIBLE);
+
+            back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onBackPressed();
+                }
+            });
+        }
     }
 
 
@@ -152,7 +238,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     public void showToast(String message) {
         ToastUtils.showShort(message);
     }
-
 
     @Subscribe
     public void onEvent(String event) {
