@@ -10,7 +10,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        setToolbar(false,"测试项目");
+        setToolbarCenter(false,"测试项目");
     }
 
     @Override

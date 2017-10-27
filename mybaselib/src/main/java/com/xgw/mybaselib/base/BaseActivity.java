@@ -86,7 +86,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
      * @param hasBack
      * @param title
      */
-    public void setToolbar(boolean hasBack, String title) {
+    public void setToolbarCenter(boolean hasBack, String title) {
         initToolbar(hasBack, title);
     }
 
@@ -140,10 +140,10 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         if (TextUtils.isEmpty(title)) {
             title = getString(R.string.app_name);
         }
-        toolbar.setTitle(title);
+        TextView titleTv = (TextView) findViewById(R.id.title);
+        titleTv.setText(title);
         setSupportActionBar(toolbar);   //该设置要放setTitle之后，否则setTitle会无效
-
-        setSupportActionBar(toolbar);   //该设置要放setTitle之后，否则setTitle会无效
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         if (hasBack) {
             ImageView back = (ImageView) findViewById(R.id.toolbar_back);
