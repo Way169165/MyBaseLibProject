@@ -1,15 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.xgw.mybaselibproject.MainActivity">
+
     <include layout="@layout/toolbar" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.xgw.mybaselib.widget.roundview.view.RoundViewRelativeLayout
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                app:rv_backgroundColor="@color/green_100"
+                app:rv_backgroundPressColor="@color/green_200"
+                app:rv_radius="20dp"
+                app:rv_strokeColor="@color/red_100"
+                app:rv_strokePressColor="@color/red_200"
+                app:rv_strokeWidth="2dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="RelativeLayout press"
+                    android:textColor="@color/black" />
+            </com.xgw.mybaselib.widget.roundview.view.RoundViewRelativeLayout>
+
+            <com.xgw.mybaselib.widget.roundview.view.RoundViewRelativeLayout
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                app:rv_backgroundColor="@color/green_100"
+                app:rv_backgroundPressColor="@color/red_200"
+                app:rv_isRippleEnable="true"
+                app:rv_radius="20dp"
+                app:rv_strokeColor="@color/red_100"
+                app:rv_strokePressColor="@color/red_200"
+                app:rv_strokeWidth="2dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="RelativeLayout ripple"
+                    android:textColor="@color/black" />
+            </com.xgw.mybaselib.widget.roundview.view.RoundViewRelativeLayout>
+
+            <com.xgw.mybaselib.widget.roundview.view.RoundViewLineaLayout
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:gravity="center"
+                app:rv_backgroundColor="@color/pink_100"
+                app:rv_backgroundPressColor="@color/pink_200"
+                app:rv_radius="20dp"
+                app:rv_strokeColor="@color/green_100"
+                app:rv_strokePressColor="@color/green_200"
+                app:rv_strokeWidth="2dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LinearLayout"
+                    android:textColor="@color/black" />
+            </com.xgw.mybaselib.widget.roundview.view.RoundViewLineaLayout>
+
+            <com.xgw.mybaselib.widget.roundview.view.RoundViewFrameLayout
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:clickable="true"
+                app:rv_backgroundColor="@color/yellow_300"
+                app:rv_backgroundPressColor="@color/yellow_600"
+                app:rv_radius="20dp"
+                app:rv_strokeColor="@color/red_700"
+                app:rv_strokePressColor="@color/red_900"
+                app:rv_strokeWidth="2dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="FrameLayout"
+                    android:textColor="@color/black" />
+            </com.xgw.mybaselib.widget.roundview.view.RoundViewFrameLayout>
+
+            <com.xgw.mybaselib.widget.roundview.view.RoundViewImageButton
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:clickable="true"
+                android:src="@mipmap/ic_launcher"
+                app:rv_backgroundColor="@color/blue_100"
+                app:rv_backgroundPressColor="@color/blue_200"
+                app:rv_radiusTopLeft="20dp"
+                app:rv_radiusTopRight="20dp"
+                app:rv_strokeColor="@color/brown_100"
+                app:rv_strokePressColor="@color/brown_200"
+                app:rv_strokeWidth="10dp" />
+
+            <com.xgw.mybaselib.widget.roundview.view.RoundViewTextView
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:src="@mipmap/ic_launcher"
+                android:text="TextView"
+                app:rv_backgroundColor="@color/green_600"
+                app:rv_backgroundPressColor="@color/green_900"
+                app:rv_radius="10dp"
+                app:rv_strokeColor="@color/red_400"
+                app:rv_strokePressColor="@color/black"
+                app:rv_strokeWidth="10dp"
+                app:rv_textColor="@color/white"
+                app:rv_textColorPressed="@color/red_800" />
+
+            <com.xgw.mybaselib.widget.roundview.view.RoundViewButton
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:src="@mipmap/ic_launcher"
+                android:text="button press"
+                app:rv_backgroundColor="@color/green_600"
+                app:rv_backgroundPressColor="@color/green_900"
+                app:rv_isRadiusHalfHeight="true"
+                app:rv_textColor="@color/black_alpha_192"
+                app:rv_textColorPressed="@color/black_alpha_192" />
+
+            <com.xgw.mybaselib.widget.roundview.view.RoundViewButton
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:enabled="false"
+                android:gravity="center"
+                android:src="@mipmap/ic_launcher"
+                android:text="button disable"
+                app:rv_backgroundColor="@color/green_600"
+                app:rv_backgroundDisableColor="@color/green_50"
+                app:rv_backgroundPressColor="@color/green_900"
+                app:rv_radius="15dp"
+                app:rv_strokeColor="@color/red_400"
+                app:rv_strokeDisableColor="@color/red_50"
+                app:rv_strokePressColor="@color/red_800"
+                app:rv_strokeWidth="2dp"
+                app:rv_textColor="@color/black_alpha_192"
+                app:rv_textColorDisabled="@color/black_alpha_112"
+                app:rv_textColorPressed="@color/black_alpha_192" />
+
+            <com.xgw.mybaselib.widget.roundview.view.RoundViewTextView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:src="@mipmap/ic_launcher"
+                android:text="TextView circle font"
+                app:rv_backgroundColor="@color/green_600"
+                app:rv_backgroundPressColor="@color/green_900"
+                app:rv_font="华康少女繁简完全版.ttf"
+                app:rv_isRadiusHalfHeight="true"
+                app:rv_isRippleEnable="true"
+                app:rv_isWidthHeightEqual="true"
+                app:rv_strokeColor="@color/red_400"
+                app:rv_strokePressColor="@color/black"
+                app:rv_strokeWidth="10dp"
+                app:rv_textColor="@color/brown_900"
+                app:rv_textColorPressed="@color/brown_200" />
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

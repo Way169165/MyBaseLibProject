@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RoundViewDelegate">
+        <!--background-->
+        <attr name="rv_backgroundColor" format="color" />
+        <attr name="rv_backgroundPressColor" format="color" />
+        <attr name="rv_backgroundDisableColor" format="color" />
+        <!--stroke-->
+        <attr name="rv_strokeWidth" format="dimension" />
+        <attr name="rv_strokeColor" format="color" />
+        <attr name="rv_strokePressColor" format="color" />
+        <attr name="rv_strokeDisableColor" format="color" />
+        <!--radius-->
+        <attr name="rv_radius" format="dimension" />
+        <attr name="rv_radiusTopLeft" format="dimension" />
+        <attr name="rv_radiusTopRight" format="dimension" />
+        <attr name="rv_radiusBottomLeft" format="dimension" />
+        <attr name="rv_radiusBottomRight" format="dimension" />
+        <!--params-->
+        <attr name="rv_isWidthHeightEqual" format="boolean" />
+        <attr name="rv_isRadiusHalfHeight" format="boolean" />
+        <attr name="rv_isRippleEnable" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundViewDelegateText">
+        <!--font-->
+        <attr name="rv_font" format="string" />
+        <!--text-->
+        <attr name="rv_textColor" format="color" />
+        <attr name="rv_textColorDisabled" format="color" />
+        <attr name="rv_textColorPressed" format="color" />
+    </declare-styleable>
+</resources>
