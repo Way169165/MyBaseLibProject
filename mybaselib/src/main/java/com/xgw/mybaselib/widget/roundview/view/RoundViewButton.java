@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 
+import com.xgw.mybaselib.R;
 import com.xgw.mybaselib.widget.roundview.delegate.BaseDelegate;
 import com.xgw.mybaselib.widget.roundview.delegate.RoundViewDelegateText;
 
@@ -20,12 +21,12 @@ public class RoundViewButton extends AppCompatButton {
     }
 
     public RoundViewButton(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        this(context, attrs, R.attr.buttonStyle);
     }
 
     public RoundViewButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        delegate = new RoundViewDelegateText(context, this, attrs);
+        delegate = new RoundViewDelegateText(context, this, attrs,defStyleAttr);
     }
 
     @Override

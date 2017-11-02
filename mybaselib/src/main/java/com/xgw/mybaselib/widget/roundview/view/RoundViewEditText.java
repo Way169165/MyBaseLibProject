@@ -3,7 +3,6 @@ package com.xgw.mybaselib.widget.roundview.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.EditText;
-
 import com.xgw.mybaselib.widget.roundview.delegate.BaseDelegate;
 import com.xgw.mybaselib.widget.roundview.delegate.RoundViewDelegateText;
 
@@ -20,11 +19,7 @@ public class RoundViewEditText extends EditText {
     }
 
     public RoundViewEditText(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
-    }
-
-    public RoundViewEditText(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+        super(context, attrs);
         delegate = new RoundViewDelegateText(context, this, attrs);
     }
 
@@ -32,6 +27,7 @@ public class RoundViewEditText extends EditText {
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
         delegate.onLayout(changed, left, top, right, bottom);
+        requestFocus();
     }
 
     @Override

@@ -38,7 +38,7 @@ public class RoundViewDelegateText extends RoundViewDelegate {
     @Override
     public void obtainAttributes(Context context, AttributeSet attrs, @AttrRes int defStyleAttr) {
         super.obtainAttributes(context, attrs, defStyleAttr);
-        if ( !(mView instanceof TextView)) {
+        if (!(mView instanceof TextView)) {
             throw new UnsupportedOperationException("非TextView子类不能使用我！！！");
         }
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RoundViewDelegateText, defStyleAttr, 0);
@@ -58,19 +58,17 @@ public class RoundViewDelegateText extends RoundViewDelegate {
             ((TextView) mView).setTypeface(FontHelper.get(mView.getContext(), font));
         }
         //text color
-        if (textColorPress != textColor) {
-            ColorStateList colorStateList = new ColorStateList(
-                    new int[][]{
-                            new int[]{-android.R.attr.state_enabled},//disable
-                            new int[]{android.R.attr.state_pressed},//press
-                            new int[]{},//normal
-                    },
-                    new int[]{
-                            textColorDisable,
-                            textColorPress,
-                            textColor});
+        ColorStateList colorStateList = new ColorStateList(
+                new int[][]{
+                        new int[]{-android.R.attr.state_enabled},//disable
+                        new int[]{android.R.attr.state_pressed},//press
+                        new int[]{},//normal
+                },
+                new int[]{
+                        textColorDisable,
+                        textColorPress,
+                        textColor});
 
-            ((TextView) mView).setTextColor(colorStateList);
-        }
+        ((TextView) mView).setTextColor(colorStateList);
     }
 }

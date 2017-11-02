@@ -146,7 +146,11 @@ public class RoundViewDelegate implements BaseDelegate {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && isRippleEnable) {
             mView.setBackground(createRippleDrawable());
         } else {
-            mView.setBackgroundDrawable(createStateListDrawable());
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                mView.setBackground(createStateListDrawable());
+            } else {
+                mView.setBackgroundDrawable(createStateListDrawable());
+            }
         }
     }
 
@@ -200,12 +204,15 @@ public class RoundViewDelegate implements BaseDelegate {
             radiusArray[7] = radiusBottomLeft;
         }
         shape.setCornerRadii(radiusArray);
-        shape.setStroke(stroke, strokeColor);
+        if (stroke != 0) {
+            shape.setStroke(stroke, strokeColor);
+        }
         return shape;
     }
 
     /**
      * 创建水波选择drawable
+     *
      * @return
      */
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
