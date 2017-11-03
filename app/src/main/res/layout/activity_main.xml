@@ -228,6 +228,26 @@
                 app:rv_textColor="@color/brown_900"
                 app:rv_textColorPressed="@color/brown_200" />
 
+            <com.xgw.mybaselib.widget.roundview.view.RoundViewButton
+                android:id="@+id/set_dynamic_rvb"
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:text="dynamic set attrs" />
+
+            <com.xgw.mybaselib.widget.roundview.view.RoundViewButton
+                android:id="@+id/change_rvb"
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:text="点我动态改变上面颜色"
+                app:rv_backgroundColor="@color/green_600"
+                app:rv_backgroundPressColor="@color/green_900"
+                app:rv_radius="10dp" />
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

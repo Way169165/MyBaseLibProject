@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 
+import com.socks.library.KLog;
 import com.xgw.mybaselib.R;
 import com.xgw.mybaselib.widget.roundview.delegate.BaseDelegate;
 import com.xgw.mybaselib.widget.roundview.delegate.RoundViewDelegateText;
@@ -39,5 +40,9 @@ public class RoundViewButton extends AppCompatButton {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int size[] = delegate.onMeasure(widthMeasureSpec, heightMeasureSpec);
         super.onMeasure(size[0], size[1]);
+    }
+
+    public BaseDelegate getDelegate() {
+        return delegate;
     }
 }

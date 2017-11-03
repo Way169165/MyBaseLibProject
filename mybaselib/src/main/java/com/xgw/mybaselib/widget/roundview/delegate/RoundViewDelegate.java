@@ -14,6 +14,7 @@ import android.support.annotation.AttrRes;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.socks.library.KLog;
 import com.xgw.mybaselib.R;
 
 import java.util.Arrays;
@@ -139,6 +140,238 @@ public class RoundViewDelegate implements BaseDelegate {
     }
 
     /**
+     * 设置背景颜色（正常）
+     *
+     * @param backgroundColor
+     * @return
+     */
+    @Override
+    public BaseDelegate setBackgroundColor(int backgroundColor) {
+        this.backgroundColor = backgroundColor;
+        return this;
+    }
+
+    /**
+     * 设置背景颜色（按下）
+     *
+     * @param backgroundColorPressed
+     * @return
+     */
+    @Override
+    public BaseDelegate setBackgroundColorPressed(int backgroundColorPressed) {
+        this.backgroundColorPressed = backgroundColorPressed;
+        return this;
+    }
+
+    /**
+     * 设置背景颜色（不能用的情况）
+     *
+     * @param backgroundColorDisabled
+     * @return
+     */
+    @Override
+    public BaseDelegate setBackgroundColorDisabled(int backgroundColorDisabled) {
+        this.backgroundColorDisabled = backgroundColorDisabled;
+        return this;
+    }
+
+    /**
+     * 设置边框宽度
+     *
+     * @param stroke
+     * @return
+     */
+    @Override
+    public BaseDelegate setStroke(int stroke) {
+        this.stroke = stroke;
+        return this;
+    }
+
+    /**
+     * 设置边框颜色（正常）
+     *
+     * @param strokeColor
+     * @return
+     */
+    @Override
+    public BaseDelegate setStrokeColor(int strokeColor) {
+        this.strokeColor = strokeColor;
+        return this;
+    }
+
+    /**
+     * 设置边框颜色（按下）
+     *
+     * @param strokeColorPressed
+     * @return
+     */
+    @Override
+    public BaseDelegate setStrokeColorPressed(int strokeColorPressed) {
+        this.strokeColorPressed = strokeColorPressed;
+        return this;
+    }
+
+    /**
+     * 设置边框颜色（不能用的情况）
+     *
+     * @param strokeColorDisabled
+     * @return
+     */
+    @Override
+    public BaseDelegate setStrokeColorDisabled(int strokeColorDisabled) {
+        this.strokeColorDisabled = strokeColorDisabled;
+        return this;
+    }
+
+    /**
+     * 设置圆角（所有角）
+     *
+     * @param radius
+     * @return
+     */
+    @Override
+    public BaseDelegate setRadius(int radius) {
+        this.radius = radius;
+        return this;
+    }
+
+    /**
+     * 设置圆角（左下）
+     *
+     * @param radiusBottomLeft
+     * @return
+     */
+    @Override
+    public BaseDelegate setRadiusBottomLeft(int radiusBottomLeft) {
+        this.radiusBottomLeft = radiusBottomLeft;
+        return this;
+    }
+
+    /**
+     * 设置圆角（右下）
+     *
+     * @param radiusBottomRight
+     * @return
+     */
+    @Override
+    public BaseDelegate setRadiusBottomRight(int radiusBottomRight) {
+        this.radiusBottomRight = radiusBottomRight;
+        return this;
+    }
+
+    /**
+     * 设置圆角（左上）
+     *
+     * @param radiusTopLeft
+     * @return
+     */
+    @Override
+    public BaseDelegate setRadiusTopLeft(int radiusTopLeft) {
+        this.radiusTopLeft = radiusTopLeft;
+        return this;
+    }
+
+    /**
+     * 设置圆角（右上）
+     *
+     * @param radiusTopRight
+     * @return
+     */
+    @Override
+    public BaseDelegate setRadiusTopRight(int radiusTopRight) {
+        this.radiusTopRight = radiusTopRight;
+        return this;
+    }
+
+    /**
+     * 设置宽、高是否一致
+     *
+     * @param widthHeightEqual
+     * @return
+     */
+    @Override
+    public BaseDelegate setWidthHeightEqual(boolean widthHeightEqual) {
+        this.isWidthHeightEqual = widthHeightEqual;
+        return this;
+    }
+
+    /**
+     * 设置圆角大小是否是高度的一半
+     *
+     * @param radiusHalfHeight
+     * @return
+     */
+    @Override
+    public BaseDelegate setRadiusHalfHeight(boolean radiusHalfHeight) {
+        this.isRadiusHalfHeight = radiusHalfHeight;
+        return this;
+    }
+
+    /**
+     * 设置是否有水波效果
+     *
+     * @param rippleEnable
+     * @return
+     */
+    @Override
+    public BaseDelegate setRippleEnable(boolean rippleEnable) {
+        this.isRippleEnable = rippleEnable;
+        return this;
+    }
+
+    /**
+     * 设置字体（字体放在assets/fonts目录下）
+     *
+     * @param font
+     * @return
+     */
+    @Override
+    public BaseDelegate setFont(String font) {
+        return null;
+    }
+
+    /**
+     * 设置字体颜色（正常）
+     *
+     * @param textColor
+     * @return
+     */
+    @Override
+    public BaseDelegate setTextColor(int textColor) {
+        return null;
+    }
+
+    /**
+     * 设置字体颜色（按下）
+     *
+     * @param textColorPress
+     * @return
+     */
+    @Override
+    public BaseDelegate setTextColorPress(int textColorPress) {
+        return null;
+    }
+
+    /**
+     * 设置字体颜色（不能用的情况）
+     *
+     * @param textColorDisable
+     * @return
+     */
+    @Override
+    public BaseDelegate setTextColorDisable(int textColorDisable) {
+        return null;
+    }
+
+    /**
+     * 刷新
+     */
+    @Override
+    public void refresh() {
+        updateLayout();
+    }
+
+    /**
      * 更新布局
      */
     @Override
@@ -236,4 +469,5 @@ public class RoundViewDelegate implements BaseDelegate {
         states.addState(new int[]{}, createGradientDrawable(backgroundColor, strokeColor));
         return states;
     }
+
 }

@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
+import com.socks.library.KLog;
 import com.xgw.mybaselib.R;
 import com.xgw.mybaselib.widget.roundview.font.FontHelper;
 
@@ -70,5 +71,61 @@ public class RoundViewDelegateText extends RoundViewDelegate {
                         textColor});
 
         ((TextView) mView).setTextColor(colorStateList);
+    }
+
+    /**
+     * 设置字体（字体放在assets/fonts目录下）
+     *
+     * @param font
+     * @return
+     */
+    @Override
+    public BaseDelegate setFont(String font) {
+        this.font = font;
+        return this;
+    }
+
+    /**
+     * 设置字体颜色（正常）
+     *
+     * @param textColor
+     * @return
+     */
+    @Override
+    public BaseDelegate setTextColor(int textColor) {
+        this.textColor = textColor;
+        return this;
+    }
+
+    /**
+     * 设置字体颜色（按下）
+     *
+     * @param textColorPress
+     * @return
+     */
+    @Override
+    public BaseDelegate setTextColorPress(int textColorPress) {
+        this.textColorPress = textColorPress;
+        return this;
+    }
+
+    /**
+     * 设置字体颜色（不能用的情况）
+     *
+     * @param textColorDisable
+     * @return
+     */
+    @Override
+    public BaseDelegate setTextColorDisable(int textColorDisable) {
+        this.textColorDisable = textColorDisable;
+        return this;
+    }
+
+    /**
+     * 刷新
+     */
+    @Override
+    public void refresh() {
+        updateLayout();
     }
 }
