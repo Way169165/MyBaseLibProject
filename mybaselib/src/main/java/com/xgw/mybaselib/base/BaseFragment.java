@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 import io.reactivex.disposables.CompositeDisposable;
 
 /**
- * Created by weinai351353 on 2017/8/7.
+ * Created by XieGuangwei on 2017/8/7.
  * fragment基类
  */
 
@@ -45,9 +45,7 @@ public abstract class BaseFragment extends Fragment implements BaseViewInterface
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        if (isUsingButterKnife()) {
-            ButterKnife.bind(this,view);
-        }
+        ButterKnife.bind(this,view);
         initView();
         initData();
     }
@@ -69,15 +67,6 @@ public abstract class BaseFragment extends Fragment implements BaseViewInterface
     public void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
-    }
-
-    /**
-     * 是否使用黄油刀注解
-     *
-     * @return 默认使用
-     */
-    public boolean isUsingButterKnife() {
-        return true;
     }
 
     @Subscribe

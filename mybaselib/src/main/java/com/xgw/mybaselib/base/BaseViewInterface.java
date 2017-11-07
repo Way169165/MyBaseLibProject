@@ -1,7 +1,7 @@
 package com.xgw.mybaselib.base;
 
 /**
- * Created by weinai351353 on 2017/8/7.
+ * Created by XieGuangwei on 2017/8/7.
  * view操作回调接口
  */
 

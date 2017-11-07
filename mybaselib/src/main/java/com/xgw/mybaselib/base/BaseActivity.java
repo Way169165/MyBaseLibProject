@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 import io.reactivex.disposables.CompositeDisposable;
 
 /**
- * Created by weinai351353 on 2017/8/6.
+ * Created by XieGuangwei on 2017/8/6.
  * activity基类
  */
 
@@ -48,11 +48,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         //将activity添加到管理栈
         AppManager.getAppManager().addActivity(this);
         EventBus.getDefault().register(this);
-
-        //如需使用黄油刀注解，绑定黄油刀注解
-        if (isUsingButterKnife()) {
-            ButterKnife.bind(this);
-        }
+        ButterKnife.bind(this);
 
         //初始化操作
         initView();
@@ -221,15 +217,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         }
 
         this.startActivity(intent);
-    }
-
-    /**
-     * 是否使用黄油刀注解
-     *
-     * @return 默认使用
-     */
-    public boolean isUsingButterKnife() {
-        return true;
     }
 
     /**
