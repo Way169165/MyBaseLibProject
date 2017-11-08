@@ -23,7 +23,7 @@ public class FragmentPagerTestActivity extends BaseFragmentPagerActivity {
         setSelectedTabIndicatorColor(Color.RED);//设置选中时tab滚动条颜色
         setTabTextColors(Color.BLACK,Color.BLUE);//设置tab选中时文字颜色
         setTabLayoutBackgroundColor(Color.YELLOW);//设置tablayout背景色
-        setTabMode(TabLayout.MODE_FIXED);//设置tab模式（可滚动）
+        setTabMode(TabLayout.MODE_SCROLLABLE);//设置tab模式（可滚动）
         setTabIndicatorHeight(0);//设置滚动条高度（为0不显示）
     }
 
