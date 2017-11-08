@@ -17,4 +17,7 @@ dependencies {
 }
 ```
 ## 2.Screenshot
+![](https://github.com/Way169165/MyBaseLibProject/blob/master/screenshots/screenshot1.gif)
+![](https://github.com/Way169165/MyBaseLibProject/blob/master/screenshots/screenshot1.gif)
+![](https://github.com/Way169165/MyBaseLibProject/blob/master/screenshots/screenshot1.gif)
 ## 3.api
