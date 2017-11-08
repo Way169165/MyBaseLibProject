@@ -6,7 +6,7 @@ import com.xgw.mybaselib.base.BaseFragment;
  * Created by XieGuangwei on 2017/11/7.
  */
 
-public class LazyFragment extends BaseFragment {
+public class TestFragment extends BaseFragment {
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_lazy;

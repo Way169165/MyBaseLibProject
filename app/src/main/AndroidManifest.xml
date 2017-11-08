@@ -30,6 +30,8 @@
             android:screenOrientation="portrait" />
         <activity android:name=".FragmentCustomActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".LazyLoadFragmentActivityTest"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

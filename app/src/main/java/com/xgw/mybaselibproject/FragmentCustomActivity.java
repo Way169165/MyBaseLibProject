@@ -30,9 +30,9 @@ public class FragmentCustomActivity extends BaseFragmentPagerActivity {
     @Override
     protected List<Fragment> getFragments() {
         List<Fragment> fragments = new ArrayList<>();
-        fragments.add(new LazyFragment());
-        fragments.add(new LazyFragment());
-        fragments.add(new LazyFragment());
+        fragments.add(new TestFragment());
+        fragments.add(new TestFragment());
+        fragments.add(new TestFragment());
         return fragments;
     }
 
