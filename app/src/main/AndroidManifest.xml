@@ -26,11 +26,13 @@
             android:name=".WebViewTestActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".FragmentPagerTestActivity"
+            android:name=".FragmentTabTestActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".FragmentCustomActivity"
+        <activity android:name=".FragmentCustomTabTestActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".LazyLoadFragmentActivityTest"
+        <activity android:name=".LazyLoadFragmentTabTestActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".RoundViewShapeTestActivity"
             android:screenOrientation="portrait" />
     </application>
 

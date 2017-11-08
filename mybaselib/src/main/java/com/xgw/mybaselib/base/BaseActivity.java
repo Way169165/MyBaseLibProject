@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.xgw.mybaselib.AppManager;
 import com.xgw.mybaselib.R;
 import com.xgw.mybaselib.utils.ToastUtils;
+import com.xgw.mybaselib.widget.roundview.view.RoundViewTextView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -108,7 +109,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
      */
     public void setToolbarRightTv(boolean hasBack, String title, String tvTitle) {
         initToolbar(hasBack, title);
-        TextView rightTv = (TextView) findViewById(R.id.right_tv);
+        RoundViewTextView rightTv = (RoundViewTextView) findViewById(R.id.right_tv);
         rightTv.setText(tvTitle);
     }
 

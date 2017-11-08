@@ -14,8 +14,8 @@
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:elevation="0dp"
-            app:colorControlNormal="@android:color/black">
+            app:colorControlNormal="@android:color/black"
+            app:elevation="0dp">
 
             <!--
                 app:layout_scrollFlags="scroll|snap|enterAlways"
@@ -64,7 +64,7 @@
                         android:textColor="@color/toolbar_tv"
                         android:textSize="20dp" />
 
-                    <TextView
+                    <com.xgw.mybaselib.widget.roundview.view.RoundViewTextView
                         android:id="@+id/right_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

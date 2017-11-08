@@ -14,7 +14,8 @@ import io.reactivex.Observable;
  * Created by XieGuangwei on 2017/11/8.
  */
 
-public class LazyLoadFragmentTest extends BaseLazyRecyclerFragment<BaseResponse<List<Gank>>> {
+public class LazyLoadRecyclerTestFragment extends BaseLazyRecyclerFragment<BaseResponse<List<Gank>>> {
+
     @Override
     protected BaseRecyclerAdapter getAdapter() {
         return new RecyclerTestAdapter(R.layout.item_recycler_test, null, recyclerView);

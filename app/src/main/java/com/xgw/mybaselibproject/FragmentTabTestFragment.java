@@ -13,7 +13,7 @@ import java.util.List;
  * 通用fragmentpagerfragment测试
  */
 
-public class FragmentPagerFragment extends BaseFragmentPagerFragment {
+public class FragmentTabTestFragment extends BaseFragmentPagerFragment {
     @Override
     protected String[] getTitles() {
         return new String[]{"fragment1","fragment1","fragment1"};

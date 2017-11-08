@@ -1,6 +1,5 @@
 package com.xgw.mybaselibproject;
 
-import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.view.View;
@@ -11,45 +10,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by XieGuangwei on 2017/11/7.
- * 同样fragmentactivity测试
+ * Created by XieGuangwei on 2017/11/8.
  */
 
-public class FragmentPagerTestActivity extends BaseFragmentPagerActivity {
+public class LazyLoadFragmentTabTestActivity extends BaseFragmentPagerActivity {
     @Override
     public void initView() {
-        setToolbarCenter(true,"通用FragmentActivity测试");
+        setToolbarCenter(true, "懒加载测试");
         super.initView();
-        setSelectedTabIndicatorColor(Color.RED);//设置选中时tab滚动条颜色
-        setTabTextColors(Color.BLACK,Color.BLUE);//设置tab选中时文字颜色
-        setTabLayoutBackgroundColor(Color.YELLOW);//设置tablayout背景色
-        setTabMode(TabLayout.MODE_SCROLLABLE);//设置tab模式（可滚动）
-        setTabIndicatorHeight(0);//设置滚动条高度（为0不显示）
+        setTabMode(TabLayout.MODE_SCROLLABLE);
     }
 
     @Override
     protected String[] getTitles() {
-        return new String[]{"lazy1", "lazy2", "lazy3","lazy1", "lazy2", "lazy3","lazy1", "lazy2", "lazy3"};
+        return new String[]{"lazy1", "lazy1", "lazy1", "lazy1", "lazy1", "lazy1", "lazy1", "lazy1"};
     }
 
     @Override
     protected List<Fragment> getFragments() {
         List<Fragment> fragments = new ArrayList<>();
-        fragments.add(new FragmentPagerFragment());
-        fragments.add(new TestFragment());
-        fragments.add(new TestFragment());
-        fragments.add(new TestFragment());
-        fragments.add(new TestFragment());
-        fragments.add(new TestFragment());
-        fragments.add(new TestFragment());
-        fragments.add(new TestFragment());
-        fragments.add(new TestFragment());
+        fragments.add(new LazyLoadRecyclerTestFragment());
+        fragments.add(new LazyLoadRecyclerTestFragment());
+        fragments.add(new LazyLoadRecyclerTestFragment());
+        fragments.add(new LazyLoadRecyclerTestFragment());
+        fragments.add(new LazyLoadRecyclerTestFragment());
+        fragments.add(new LazyLoadRecyclerTestFragment());
+        fragments.add(new LazyLoadRecyclerTestFragment());
+        fragments.add(new LazyLoadRecyclerTestFragment());
         return fragments;
     }
 
     @Override
     protected int getOffscreenPageLimit() {
-        return 10;
+        return 8;
     }
 
     @Override

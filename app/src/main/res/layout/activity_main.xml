@@ -57,4 +57,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="懒加载fragment示例" />
+
+    <Button
+        android:id="@+id/custom_shape_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="我的自定义shape哈哈哈" />
 </LinearLayout>

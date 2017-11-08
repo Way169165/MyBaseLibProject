@@ -14,7 +14,7 @@ import java.util.List;
  * 通用tablayout自定义item布局测试
  */
 
-public class FragmentCustomActivity extends BaseFragmentPagerActivity {
+public class FragmentCustomTabTestActivity extends BaseFragmentPagerActivity {
     @Override
     public void initView() {
         setToolbarCenter(true, "通用tablayout自定义item布局测试");

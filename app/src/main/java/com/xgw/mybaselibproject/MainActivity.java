@@ -2,27 +2,18 @@ package com.xgw.mybaselibproject;
 
 import android.support.v7.app.AlertDialog;
 import android.view.View;
-import android.widget.Button;
 
 import com.google.gson.Gson;
 import com.xgw.mybaselib.base.BaseActivity;
 import com.xgw.mybaselib.rxhttp.RxHttpUtils;
 import com.xgw.mybaselib.rxhttp.bean.BaseResponse;
 import com.xgw.mybaselib.rxhttp.helper.RxSchedulers;
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
-
 import java.util.List;
-
-import butterknife.BindView;
 import butterknife.OnClick;
 import io.reactivex.observers.DisposableObserver;
 
 public class MainActivity extends BaseActivity {
-    @BindView(R.id.global_btn)
-    Button button;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
@@ -38,7 +29,7 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.global_btn, R.id.single_btn1, R.id.single_btn2, R.id.recycler_activity_btn, R.id.webview_btn, R.id.fragment_pager_btn,R.id.fragment_custom_btn,R.id.lazy_load_btn})
+    @OnClick({R.id.global_btn, R.id.single_btn1, R.id.single_btn2, R.id.recycler_activity_btn, R.id.webview_btn, R.id.fragment_pager_btn,R.id.fragment_custom_btn,R.id.lazy_load_btn,R.id.custom_shape_btn})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.global_btn:
@@ -131,13 +122,16 @@ public class MainActivity extends BaseActivity {
                 nextActivity(WebViewTestActivity.class);
                 break;
             case R.id.fragment_pager_btn:
-                nextActivity(FragmentPagerTestActivity.class);
+                nextActivity(FragmentTabTestActivity.class);
                 break;
             case R.id.fragment_custom_btn:
-                nextActivity(FragmentCustomActivity.class);
+                nextActivity(FragmentCustomTabTestActivity.class);
                 break;
             case R.id.lazy_load_btn:
-                nextActivity(LazyLoadFragmentActivityTest.class);
+                nextActivity(LazyLoadFragmentTabTestActivity.class);
+                break;
+            case R.id.custom_shape_btn:
+                nextActivity(RoundViewShapeTestActivity.class);
                 break;
         }
     }
