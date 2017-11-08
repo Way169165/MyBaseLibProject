@@ -16,8 +16,8 @@ dependencies {
     compile 'com.github.Way169165:MyBaseLib:2.0.0'
 }
 ```
-## 2.Screenshot
+## 2.Screenshots
 ![](https://github.com/Way169165/MyBaseLibProject/blob/master/screenshots/screenshot1.gif)
-![](https://github.com/Way169165/MyBaseLibProject/blob/master/screenshots/screenshot1.gif)
-![](https://github.com/Way169165/MyBaseLibProject/blob/master/screenshots/screenshot1.gif)
+![](https://github.com/Way169165/MyBaseLibProject/blob/master/screenshots/screenshot2.gif)
+![](https://github.com/Way169165/MyBaseLibProject/blob/master/screenshots/screenshot3.gif)
 ## 3.api
