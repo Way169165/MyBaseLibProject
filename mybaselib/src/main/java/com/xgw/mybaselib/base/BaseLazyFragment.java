@@ -36,7 +36,7 @@ public abstract class BaseLazyFragment extends BaseFragment {
     private void lazyLoad() {
         //这里进行双重标记判断,是因为setUserVisibleHint会多次回调,并且会在onCreateView执行前回调,必须确保onCreateView加载完毕且页面可见,才加载数据
         if (isViewCreated && isUIVisible) {
-            loadData();
+            startLazyLoad();
             //数据加载完毕,恢复标记,防止重复加载
             isViewCreated = false;
             isUIVisible = false;
@@ -46,7 +46,7 @@ public abstract class BaseLazyFragment extends BaseFragment {
     }
 
 
-    protected abstract void loadData();
+    protected abstract void startLazyLoad();
 
 
     @Override

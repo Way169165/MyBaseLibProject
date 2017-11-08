@@ -15,4 +15,6 @@ public interface ApiService {
     @GET("data/福利/10/{page}")
     Observable<BaseResponse<List<Gank>>> getMeizhiData(
             @Path("page") int page);
+    @GET("data/福利/{pageCount}/{pageIndex}")
+    Observable<BaseResponse<List<Gank>>> getMaizhiData(@Path("pageCount") int pageCount,@Path("pageIndex") int pageIndex);
 }

@@ -14,7 +14,7 @@ import io.reactivex.Observable;
  * 通用列表activity测试
  */
 
-public class RecyclerTestActivity extends BaseRecyclerActivity<BaseResponse<List<Gank>>> {
+public class RecyclerTestActivity extends BaseRecyclerActivity<BaseResponse<List<Gank>>,Gank> {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_test_recycler;
@@ -27,12 +27,17 @@ public class RecyclerTestActivity extends BaseRecyclerActivity<BaseResponse<List
     }
 
     @Override
-    protected BaseRecyclerAdapter getAdapter() {
+    protected boolean isEnableLoadMore() {
+        return false;
+    }
+
+    @Override
+    protected BaseRecyclerAdapter<Gank> getAdapter() {
         return new RecyclerTestAdapter(R.layout.item_recycler_test, null, recyclerView);
     }
 
     @Override
-    protected Observable<BaseResponse<List<Gank>>> getData() {
+    protected Observable<BaseResponse<List<Gank>>> getData(int pageNo) {
         return RxHttpUtils.getSingleConfig()
                 .setBaseUrl(UrlConstants.BASE_URL)
                 .createApi(ApiService.class)
@@ -40,13 +45,13 @@ public class RecyclerTestActivity extends BaseRecyclerActivity<BaseResponse<List
     }
 
     @Override
-    protected void onResultSuccess(BaseResponse<List<Gank>> result) {
-        adapter.setNewData(result.getResults());
+    protected void onResultSuccess(BaseResponse<List<Gank>> result,int pageNo) {
+        adapter.showSinglePageData(result.getResults());
     }
 
     @Override
     protected void onResultError(Throwable e) {
-        adapter.setNewData(null);
+        adapter.showSinglePageData(null);
     }
 
     @Override
@@ -57,5 +62,10 @@ public class RecyclerTestActivity extends BaseRecyclerActivity<BaseResponse<List
     @Override
     protected int getGridLayoutManagerSpanCount() {
         return 2;
+    }
+
+    @Override
+    protected int[] getSwipeRefreshSchemaColors() {
+        return new int[0];
     }
 }
