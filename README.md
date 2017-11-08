@@ -21,3 +21,4 @@ dependencies {
 ![](https://github.com/Way169165/MyBaseLibProject/blob/master/screenshots/screenshot2.gif)
 ![](https://github.com/Way169165/MyBaseLibProject/blob/master/screenshots/screenshot3.gif)
 ## 3.api
+[使用](https://github.com/Way169165/MyBaseLibProject/tree/master/app/src/main/java/com/xgw/mybaselibproject)
