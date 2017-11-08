@@ -13,7 +13,7 @@ allprojects {
 ### Step 2. Add the dependency
 ```
 dependencies {
-    compile 'com.github.Way169165:MyBaseLib:2.0.0'
+    compile 'com.github.Way169165:MyBaseLibProject:v2.1.0'
 }
 ```
 ## 2.Screenshots
