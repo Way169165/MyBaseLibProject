@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RoundViewConfig">
+        <!--background-->
+        <attr name="rv_backgroundColor" format="color" />
+        <attr name="rv_backgroundColorPressed" format="color" />
+        <attr name="rv_backgroundColorDisabled" format="color" />
+        <!--stroke-->
+        <attr name="rv_strokeWidth" format="dimension" />
+        <attr name="rv_strokeColor" format="color" />
+        <attr name="rv_strokeColorPressed" format="color" />
+        <attr name="rv_strokeColorDisabled" format="color" />
+        <!--radius-->
+        <attr name="rv_radius" format="dimension" />
+        <attr name="rv_radiusTopLeft" format="dimension" />
+        <attr name="rv_radiusTopRight" format="dimension" />
+        <attr name="rv_radiusBottomLeft" format="dimension" />
+        <attr name="rv_radiusBottomRight" format="dimension" />
+        <!--params-->
+        <attr name="rv_isWidthHeightEqual" format="boolean" />
+        <attr name="rv_isRadiusHalfHeight" format="boolean" />
+        <attr name="rv_isRippleEnable" format="boolean" />
+        <attr name="rv_isStateFocusedEqualsPressed" format="boolean" />
+        <attr name="rv_isStateSelectedEqualsPressed" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="RoundViewConfigText">
+        <!--font-->
+        <attr name="rv_font" format="string" />
+        <!--text-->
+        <attr name="rv_textColor" format="color" />
+        <attr name="rv_textColorDisabled" format="color" />
+        <attr name="rv_textColorPressed" format="color" />
+        <!--drawable left-->
+        <attr name="rv_drawableLeft" format="reference" />
+        <attr name="rv_drawableLeftPressed" format="reference" />
+        <attr name="rv_drawableLeftDisabled" format="reference" />
+        <!--drawable right-->
+        <attr name="rv_drawableRight" format="reference" />
+        <attr name="rv_drawableRightPressed" format="reference" />
+        <attr name="rv_drawableRightDisabled" format="reference" />
+        <!--drawable top-->
+        <attr name="rv_drawableTop" format="reference" />
+        <attr name="rv_drawableTopPressed" format="reference" />
+        <attr name="rv_drawableTopDisabled" format="reference" />
+        <!--drawable bottom-->
+        <attr name="rv_drawableBottom" format="reference" />
+        <attr name="rv_drawableBottomPressed" format="reference" />
+        <attr name="rv_drawableBottomDisabled" format="reference" />
+    </declare-styleable>
+</resources>

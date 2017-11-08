@@ -11,6 +11,7 @@ import io.reactivex.Observable;
 
 /**
  * Created by XieGuangwei on 2017/11/7.
+ * 通用列表activity测试
  */
 
 public class RecyclerTestActivity extends BaseRecyclerActivity<BaseResponse<List<Gank>>> {
@@ -21,7 +22,7 @@ public class RecyclerTestActivity extends BaseRecyclerActivity<BaseResponse<List
 
     @Override
     public void initView() {
-        setToolbarCenter(false,"基类测试");
+        setToolbarCenter(false,"通用列表activity测试");
         super.initView();
     }
 
@@ -55,6 +56,6 @@ public class RecyclerTestActivity extends BaseRecyclerActivity<BaseResponse<List
 
     @Override
     protected int getGridLayoutManagerSpanCount() {
-        return 4;
+        return 2;
     }
 }

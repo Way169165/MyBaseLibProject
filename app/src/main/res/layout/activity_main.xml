@@ -4,6 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context="com.xgw.mybaselibproject.MainActivity">
 
@@ -31,11 +32,23 @@
         android:id="@+id/recycler_activity_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="recycler activity示例" />
+        android:text="通用列表activity示例" />
 
     <Button
         android:id="@+id/webview_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="webview activity示例" />
+        android:text="通用webview activity示例" />
+
+    <Button
+        android:id="@+id/fragment_pager_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="通用fragmentactivity示例" />
+
+    <Button
+        android:id="@+id/fragment_custom_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="通用自定义布局fragmentactivity示例" />
 </LinearLayout>

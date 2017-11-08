@@ -28,14 +28,17 @@ public abstract class BaseRecyclerFragment<T> extends BaseFragment {
 
     @Override
     public void initView() {
-        recyclerView = (RecyclerView) getActivity().findViewById(R.id.recyclerView);
-        swipeRefresh = (SwipeRefreshLayout) getActivity().findViewById(R.id.swipeRefresh);
+        if (getView() == null) {
+            return;
+        }
+        recyclerView = (RecyclerView) getView().findViewById(R.id.recyclerView);
+        swipeRefresh = (SwipeRefreshLayout) getView().findViewById(R.id.swipeRefresh);
         if (getLayoutManagerType() == LINEAR_LAYOUT_MANAGER_TYPE) {
-            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         } else if (getLayoutManagerType() == GRID_LAYOUT_MANAGER_TYPE) {
-            recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), getGridLayoutManagerSpanCount()));
+            recyclerView.setLayoutManager(new GridLayoutManager(getContext(), getGridLayoutManagerSpanCount()));
         } else {
-            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         }
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
