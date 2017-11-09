@@ -14,7 +14,7 @@ import io.reactivex.Observable;
  * 通用列表activity测试
  */
 
-public class RecyclerTestActivity extends BaseRecyclerActivity<BaseResponse<List<Gank>>,Gank> {
+public class RecyclerTestActivity extends BaseRecyclerActivity<BaseResponse<List<Gank>>, Gank> {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_test_recycler;
@@ -22,7 +22,7 @@ public class RecyclerTestActivity extends BaseRecyclerActivity<BaseResponse<List
 
     @Override
     public void initView() {
-        setToolbarCenter(false,"通用列表activity测试");
+        setToolbarCenter(true, "通用列表activity测试");
         super.initView();
     }
 
@@ -45,7 +45,7 @@ public class RecyclerTestActivity extends BaseRecyclerActivity<BaseResponse<List
     }
 
     @Override
-    protected void onResultSuccess(BaseResponse<List<Gank>> result,int pageNo) {
+    protected void onResultSuccess(BaseResponse<List<Gank>> result, int pageNo) {
         adapter.showSinglePageData(result.getResults());
     }
 

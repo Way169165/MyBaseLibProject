@@ -19,16 +19,16 @@ public class WebViewTestActivity extends BaseWebViewActivity {
 
     @Override
     public void initView() {
-        setToolbarRightTv(false, "网页测试", "按钮样式");
+        setToolbarRightTv(true, "返回", 0, "网页测试", "按钮样式");
         super.initView();
         rightTv.getConfig()
-                .setBackgroundColor(ContextCompat.getColor(this,R.color.white))
-                .setBackgroundColorPressed(ContextCompat.getColor(this,R.color.blue_50))
-                .setTextColor(ContextCompat.getColor(this,R.color.black))
-                .setTextColorPressed(ContextCompat.getColor(this,R.color.black_alpha_112))
+                .setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                .setBackgroundColorPressed(ContextCompat.getColor(this, R.color.blue_50))
+                .setTextColor(ContextCompat.getColor(this, R.color.black))
+                .setTextColorPressed(ContextCompat.getColor(this, R.color.black_alpha_112))
                 .setRadius(5)
-                .setStrokeColor(ContextCompat.getColor(this,R.color.green_100))
-                .setStrokeColorPressed(ContextCompat.getColor(this,R.color.green_700))
+                .setStrokeColor(ContextCompat.getColor(this, R.color.green_100))
+                .setStrokeColorPressed(ContextCompat.getColor(this, R.color.green_700))
                 .setStrokeWidth(3);
 
     }

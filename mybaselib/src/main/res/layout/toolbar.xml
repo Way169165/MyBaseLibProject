@@ -32,16 +32,22 @@
                 app:contentInsetStart="0dp"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-                <ImageView
+                <com.xgw.mybaselib.widget.roundview.view.RoundViewTextView
                     android:id="@+id/toolbar_back"
-                    android:layout_width="60dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
+                    android:drawablePadding="3dp"
+                    android:gravity="center"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
-                    android:src="@drawable/ic_toolbar_back"
-                    android:visibility="gone" />
+                    android:textColor="@color/toolbar_back"
+                    android:textSize="18sp"
+                    android:visibility="gone"
+                    app:rv_backgroundColor="@color/transparent"
+                    app:rv_backgroundColorPressed="@color/black_alpha_112"
+                    app:rv_drawableLeft="@drawable/ic_toolbar_back"
+                    app:rv_isRippleEnable="true" />
 
                 <TextView
                     android:id="@+id/title"

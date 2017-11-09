@@ -1,5 +1,6 @@
 package com.xgw.mybaselib.rxhttp;
 
+import com.xgw.mybaselib.rxhttp.helper.DownloadConfig;
 import com.xgw.mybaselib.rxhttp.helper.GlobalConfig;
 import com.xgw.mybaselib.rxhttp.helper.SingleConfig;
 
@@ -24,6 +25,14 @@ public class RxHttpUtils {
      * @return
      */
     public static SingleConfig getSingleConfig() {
-        return SingleConfig.getInstance();
+        return new SingleConfig();
+    }
+
+    /**
+     * 获取文件下载配置类
+     * @return
+     */
+    public static DownloadConfig getDownloadConfig () {
+        return new DownloadConfig();
     }
 }

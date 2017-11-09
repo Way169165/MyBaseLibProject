@@ -15,31 +15,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by XieGuangwei on 2017/11/6.
  * 单个请求配置帮助类（区别与全局GlobalConfig，不同于其他请求的单独请求配置）
+ * 所有变量全部新建
  */
 
 public class SingleConfig {
-    private static SingleConfig instance;
-    private static String baseUrl;
-    private static boolean isLogShow = true;
-    private static long readTimeout;
-    private static long writeTimeout;
-    private static long connectTimeout;
-    private static OkHttpClient okHttpClient;
-
-    public static SingleConfig getInstance() {
-        baseUrl = null;
-        isLogShow = true;
-        readTimeout = 0;
-        writeTimeout = 0;
-        connectTimeout = 0;
-        okHttpClient = null;
-        if (instance == null) {
-            synchronized (SingleConfig.class) {
-                instance = new SingleConfig();
-            }
-        }
-        return instance;
-    }
+    private String baseUrl;
+    private boolean isLogShow = true;
+    private long readTimeout;
+    private long writeTimeout;
+    private long connectTimeout;
+    private OkHttpClient okHttpClient;
 
     public SingleConfig setBaseUrl(String baseUrl) {
         this.baseUrl = baseUrl;
@@ -51,20 +36,24 @@ public class SingleConfig {
         return this;
     }
 
-    public void setReadTimeout(long readTimeout) {
+    public SingleConfig setReadTimeout(long readTimeout) {
         this.readTimeout = readTimeout;
+        return this;
     }
 
-    public void setWriteTimeout(long writeTimeout) {
+    public SingleConfig setWriteTimeout(long writeTimeout) {
         this.writeTimeout = writeTimeout;
+        return this;
     }
 
-    public void setConnectTimeout(long connectTimeout) {
+    public SingleConfig setConnectTimeout(long connectTimeout) {
         this.connectTimeout = connectTimeout;
+        return this;
     }
 
-    public void setOkHttpClient(OkHttpClient okHttpClient) {
+    public SingleConfig setOkHttpClient(OkHttpClient okHttpClient) {
         this.okHttpClient = okHttpClient;
+        return this;
     }
 
     /**

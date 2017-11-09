@@ -9,7 +9,7 @@ import com.xgw.mybaselib.base.BaseFragment;
 public class TestFragment extends BaseFragment {
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_lazy;
+        return R.layout.fragment_test;
     }
 
     @Override

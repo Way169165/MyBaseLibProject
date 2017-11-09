@@ -29,7 +29,7 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.global_btn, R.id.single_btn1, R.id.single_btn2, R.id.recycler_activity_btn, R.id.webview_btn, R.id.fragment_pager_btn,R.id.fragment_custom_btn,R.id.lazy_load_btn,R.id.custom_shape_btn})
+    @OnClick({R.id.global_btn, R.id.single_btn1, R.id.single_btn2, R.id.recycler_activity_btn, R.id.webview_btn, R.id.fragment_pager_btn,R.id.fragment_custom_btn,R.id.lazy_load_btn,R.id.custom_shape_btn,R.id.download_btn,R.id.upload_btn})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.global_btn:
@@ -132,6 +132,12 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.custom_shape_btn:
                 nextActivity(RoundViewShapeTestActivity.class);
+                break;
+            case R.id.download_btn:
+                nextActivity(DownloadTestActivity.class);
+                break;
+            case R.id.upload_btn:
+                nextActivity(UploadTestActivity.class);
                 break;
         }
     }

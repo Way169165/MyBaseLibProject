@@ -1,6 +1,7 @@
 package com.xgw.mybaselibproject;
 
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 
 import com.xgw.mybaselib.base.BaseFragmentPagerActivity;
@@ -19,6 +20,7 @@ public class FragmentCustomTabTestActivity extends BaseFragmentPagerActivity {
     public void initView() {
         setToolbarCenter(true, "通用tablayout自定义item布局测试");
         super.initView();
+        setTabLayoutBackgroundColor(ContextCompat.getColor(this,R.color.brown_200));
         setTabIndicatorHeight(0);
     }
 
@@ -33,6 +35,7 @@ public class FragmentCustomTabTestActivity extends BaseFragmentPagerActivity {
         fragments.add(new TestFragment());
         fragments.add(new TestFragment());
         fragments.add(new TestFragment());
+        fragments.add(new TestFragment());
         return fragments;
     }
 
@@ -43,12 +46,12 @@ public class FragmentCustomTabTestActivity extends BaseFragmentPagerActivity {
 
     @Override
     protected boolean hasDivider() {
-        return true;
+        return false;
     }
 
     @Override
     protected int getDividerDrawableId() {
-        return R.drawable.tab_layout_divider;
+        return 0;
     }
 
     @Override
@@ -64,7 +67,7 @@ public class FragmentCustomTabTestActivity extends BaseFragmentPagerActivity {
     @Override
     protected List<View> getCustomViews() {
         List<View> items = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 4; i++) {
             View view = View.inflate(this, R.layout.item_tab_layout, null);
             RoundViewTextView roundViewTextView = (RoundViewTextView) view.findViewById(R.id.rvtv);
             roundViewTextView.getConfig().setStateSelectedEqualsPressed(true);

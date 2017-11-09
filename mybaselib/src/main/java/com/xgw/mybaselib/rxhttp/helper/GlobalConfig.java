@@ -12,6 +12,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 /**
  * Created by XieGuangwei on 2017/11/6.
  * 全局请求配置帮助类（在application配置好，通用）
+ * 配置好后，所有的用这一个，不在修改，若修改将影响全部
  */
 
 public class GlobalConfig {

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
+
+    <TextView
+        android:id="@+id/progress_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="进度：0%" />
+
+    <com.xgw.mybaselib.widget.roundview.view.RoundViewButton
+        android:id="@+id/download_btn"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="下载"
+        android:textSize="20sp"
+        app:rv_backgroundColor="@color/blue_500"
+        app:rv_backgroundColorDisabled="@color/blue_200"
+        app:rv_backgroundColorPressed="@color/blue_700"
+        app:rv_radius="10dp"
+        app:rv_textColor="@color/white"
+        app:rv_textColorDisabled="@color/white_alpha_64"
+        app:rv_isRippleEnable="true"/>
+
+    <ImageView
+        android:id="@+id/display_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:layout_margin="10dp"/>
+</LinearLayout>

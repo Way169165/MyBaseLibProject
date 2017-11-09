@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -84,7 +85,19 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
      * @param title
      */
     public void setToolbarCenter(boolean hasBack, String title) {
-        initToolbar(hasBack, title);
+        initToolbar(hasBack, null, 0, title);
+    }
+
+    /**
+     * 设置只有标题和返回按钮（如果有）的标题栏
+     *
+     * @param hasBack
+     * @param backStr
+     * @param backImgResId
+     * @param title
+     */
+    public void setToolbarCenter(boolean hasBack, String backStr, int backImgResId, String title) {
+        initToolbar(hasBack, backStr, backImgResId, title);
     }
 
     /**
@@ -95,7 +108,22 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
      * @param imgResId
      */
     public void setToolbarRightIv(boolean hasBack, String title, int imgResId) {
-        initToolbar(hasBack, title);
+        initToolbar(hasBack, null, 0, title);
+        ImageView image = (ImageView) findViewById(R.id.image);
+        image.setImageResource(imgResId);
+    }
+
+    /**
+     * 设置右边有ImageView的标题栏
+     *
+     * @param hasBack
+     * @param backStr
+     * @param backImgResId
+     * @param title
+     * @param imgResId
+     */
+    public void setToolbarRightIv(boolean hasBack, String backStr, int backImgResId, String title, int imgResId) {
+        initToolbar(hasBack, backStr, backImgResId, title);
         ImageView image = (ImageView) findViewById(R.id.image);
         image.setImageResource(imgResId);
     }
@@ -108,7 +136,22 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
      * @param tvTitle
      */
     public void setToolbarRightTv(boolean hasBack, String title, String tvTitle) {
-        initToolbar(hasBack, title);
+        initToolbar(hasBack, null, 0, title);
+        RoundViewTextView rightTv = (RoundViewTextView) findViewById(R.id.right_tv);
+        rightTv.setText(tvTitle);
+    }
+
+    /**
+     * 设置右边有TextView的标题栏
+     *
+     * @param hasBack
+     * @param backStr
+     * @param backImgResId
+     * @param title
+     * @param tvTitle
+     */
+    public void setToolbarRightTv(boolean hasBack, String backStr, int backImgResId, String title, String tvTitle) {
+        initToolbar(hasBack, backStr, backImgResId, title);
         RoundViewTextView rightTv = (RoundViewTextView) findViewById(R.id.right_tv);
         rightTv.setText(tvTitle);
     }
@@ -121,7 +164,22 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
      * @param btnTitle
      */
     public void setToolbarRightBtn(boolean hasBack, String title, String btnTitle) {
-        initToolbar(hasBack, title);
+        initToolbar(hasBack, null, 0, title);
+        Button rightBtn = (Button) findViewById(R.id.right_btn);
+        rightBtn.setText(btnTitle);
+    }
+
+    /**
+     * 设置右边有button的标题栏
+     *
+     * @param hasBack
+     * @param backStr
+     * @param backImgResId
+     * @param title
+     * @param btnTitle
+     */
+    public void setToolbarRightBtn(boolean hasBack, String backStr, int backImgResId, String title, String btnTitle) {
+        initToolbar(hasBack, backStr, backImgResId, title);
         Button rightBtn = (Button) findViewById(R.id.right_btn);
         rightBtn.setText(btnTitle);
     }
@@ -131,8 +189,10 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
      *
      * @param hasBack
      * @param title
+     * @param backImgResId
+     * @param backStr
      */
-    private void initToolbar(boolean hasBack, String title) {
+    private void initToolbar(boolean hasBack, String backStr, int backImgResId, String title) {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (TextUtils.isEmpty(title)) {
             title = getString(R.string.app_name);
@@ -140,12 +200,21 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         TextView titleTv = (TextView) findViewById(R.id.title);
         titleTv.setText(title);
         setSupportActionBar(toolbar);   //该设置要放setTitle之后，否则setTitle会无效
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
 
         if (hasBack) {
-            ImageView back = (ImageView) findViewById(R.id.toolbar_back);
+            RoundViewTextView back = (RoundViewTextView) findViewById(R.id.toolbar_back);
             back.setVisibility(View.VISIBLE);
-
+            if (!TextUtils.isEmpty(backStr)) {
+                back.setText(backStr);
+            }
+            if (backImgResId != 0) {
+                back.getConfig().setDrawableLeft(ContextCompat.getDrawable(this, backImgResId)).refresh();
+            } else {
+                back.getConfig().setDrawableLeft(ContextCompat.getDrawable(this, R.drawable.ic_toolbar_back)).refresh();
+            }
             back.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

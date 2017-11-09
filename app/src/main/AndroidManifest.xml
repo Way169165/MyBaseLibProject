@@ -3,6 +3,8 @@
     package="com.xgw.mybaselibproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".AppConfig"
@@ -33,6 +35,10 @@
         <activity android:name=".LazyLoadFragmentTabTestActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".RoundViewShapeTestActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".DownloadTestActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".UploadTestActivity"
             android:screenOrientation="portrait" />
     </application>
 

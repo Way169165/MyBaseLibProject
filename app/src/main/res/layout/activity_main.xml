@@ -63,4 +63,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="我的自定义shape哈哈哈" />
+
+    <Button
+        android:id="@+id/download_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="去下载" />
+
+    <Button
+        android:id="@+id/upload_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="去上传" />
 </LinearLayout>
