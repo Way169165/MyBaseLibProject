@@ -26,20 +26,28 @@
             android:name=".RecyclerTestActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".RecyclerTestLoadMoreActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".WebViewTestActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".FragmentTabTestActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".FragmentCustomTabTestActivity"
+        <activity
+            android:name=".FragmentCustomTabTestActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".LazyLoadFragmentTabTestActivity"
+        <activity
+            android:name=".LazyLoadFragmentTabTestActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".RoundViewShapeTestActivity"
+        <activity
+            android:name=".RoundViewShapeTestActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".DownloadTestActivity"
+        <activity
+            android:name=".DownloadTestActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".UploadTestActivity"
+        <activity
+            android:name=".UploadTestActivity"
             android:screenOrientation="portrait" />
     </application>
 

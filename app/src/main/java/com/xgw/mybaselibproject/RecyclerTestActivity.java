@@ -3,7 +3,6 @@ package com.xgw.mybaselibproject;
 import com.xgw.mybaselib.base.BaseRecyclerActivity;
 import com.xgw.mybaselib.base.BaseRecyclerAdapter;
 import com.xgw.mybaselib.rxhttp.RxHttpUtils;
-import com.xgw.mybaselib.rxhttp.bean.BaseResponse;
 
 import java.util.List;
 

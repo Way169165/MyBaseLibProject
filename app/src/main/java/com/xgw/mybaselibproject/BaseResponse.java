@@ -1,4 +1,4 @@
-package com.xgw.mybaselib.rxhttp.bean;
+package com.xgw.mybaselibproject;
 
 /**
  * Created by XieGuangwei on 2017/11/7.

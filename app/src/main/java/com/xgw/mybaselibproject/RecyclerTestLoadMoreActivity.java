@@ -1,8 +1,8 @@
 package com.xgw.mybaselibproject;
 
 import com.socks.library.KLog;
+import com.xgw.mybaselib.base.BaseRecyclerActivity;
 import com.xgw.mybaselib.base.BaseRecyclerAdapter;
-import com.xgw.mybaselib.base.BaseRecyclerFragment;
 import com.xgw.mybaselib.rxhttp.RxHttpUtils;
 
 import java.util.List;
@@ -10,14 +10,20 @@ import java.util.List;
 import io.reactivex.Observable;
 
 /**
- * Created by XieGuangwei on 2017/11/8.
+ * Created by XieGuangwei on 2017/11/7.
+ * 通用列表activity测试（分页）
  */
 
-public class LazyLoadRecyclerTestFragment extends BaseRecyclerFragment<BaseResponse<List<Gank>>, Gank> {
+public class RecyclerTestLoadMoreActivity extends BaseRecyclerActivity<BaseResponse<List<Gank>>, Gank> {
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_test_recycler;
+    }
 
     @Override
-    protected boolean isLoadLazy() {
-        return true;
+    public void initView() {
+        setToolbarCenter(true, "通用列表activity测试（分页）");
+        super.initView();
     }
 
     @Override
@@ -66,11 +72,6 @@ public class LazyLoadRecyclerTestFragment extends BaseRecyclerFragment<BaseRespo
 
     @Override
     protected int[] getSwipeRefreshSchemaColors() {
-        return new int[]{R.color.colorPrimary};
-    }
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.recycler_view_layout;
+        return new int[0];
     }
 }

@@ -1,7 +1,5 @@
 package com.xgw.mybaselibproject;
 
-import com.xgw.mybaselib.rxhttp.bean.BaseResponse;
-
 import java.util.List;
 import java.util.Map;
 

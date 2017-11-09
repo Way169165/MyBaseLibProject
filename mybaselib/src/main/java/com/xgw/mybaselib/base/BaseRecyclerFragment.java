@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.socks.library.KLog;
 import com.xgw.mybaselib.R;
 import com.xgw.mybaselib.rxhttp.helper.RxSchedulers;
 
@@ -59,8 +60,7 @@ public abstract class BaseRecyclerFragment<T, K> extends BaseLazyFragment {
             public void onRefresh() {
                 //刷新时禁用上拉加载
                 adapter.setEnableLoadMore(false);
-                pageNo = 1;
-                handleData(false);
+                handleData(false, true);
             }
         });
         //设置是否可上拉加载
@@ -70,14 +70,29 @@ public abstract class BaseRecyclerFragment<T, K> extends BaseLazyFragment {
             adapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
                 @Override
                 public void onLoadMoreRequested() {
-                    handleData(true);
+                    handleData(true, false);
                 }
             }, recyclerView);
         }
         //不用懒加载，fragment初始化直接加载数据
         if (!isLoadLazy()) {
-            handleData(false);
+            handleData(false, false);
         }
+    }
+
+    /**
+     * 设置pageNo，当服务器返回的数据有问题时，
+     * 但又执行了onResultSuccess，此时pageNo++了，
+     * 通过setPageNo(getPageNo()-1)即可实现pageNo复原的效果
+     *
+     * @param pageNo
+     */
+    protected void setPageNo(int pageNo) {
+        this.pageNo = pageNo;
+    }
+
+    protected int getPageNo() {
+        return pageNo;
     }
 
     @Override
@@ -89,27 +104,51 @@ public abstract class BaseRecyclerFragment<T, K> extends BaseLazyFragment {
     protected void startLazyLoad() {
         //使用懒加载，初始化view企鹅UI可见之后才加载数据
         if (isLoadLazy()) {
-            handleData(false);
+            handleData(false, false);
         }
     }
 
-    private void handleData(final boolean isLoadMore) {
-        Disposable disposable = getData(pageNo).compose(RxSchedulers.<T>io_main())
+    /**
+     * 获取数据
+     *
+     * @param isLoadMore 是否是上拉加载
+     * @param isRefresh  是否是下拉刷新
+     */
+    private void handleData(final boolean isLoadMore, final boolean isRefresh) {
+        final int currentPage;
+        if (isRefresh) {
+            //是下拉刷新，当前为第1页
+            currentPage = 1;
+        } else {
+            //否则当前页数为pageNo
+            currentPage = pageNo;
+        }
+        KLog.e("开始加载第" + currentPage + "页");
+        Disposable disposable = getData(currentPage).compose(RxSchedulers.<T>io_main())
                 .subscribeWith(new DisposableObserver<T>() {
                     @Override
                     public void onNext(T t) {
-                        onResultSuccess(t, pageNo);
+                        adapter.setEnableLoadMore(isEnableLoadMore());
+                        onResultSuccess(t, currentPage);
                         swipeRefresh.setRefreshing(false);
+                        if (isRefresh) {
+                            //是下拉刷新，且请求成功，pageNo==currentPage==1
+                            pageNo = currentPage;
+                        }
+                        //pageNo++
                         pageNo++;
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        adapter.setEnableLoadMore(isEnableLoadMore());
                         onResultError(e);
                         swipeRefresh.setRefreshing(false);
                         if (isLoadMore) {
-                            adapter.showMorePageData(null, pageNo);
-                        } else {
+                            //是上拉加载，调用分页加载数据，底部显示加载失败点击重新加载
+                            adapter.showMorePageData(null, currentPage);
+                        } else if (!isRefresh) {
+                            //不是下拉刷新请求的数据（即刚进入页面初始化请求的数据）时抛异常，调单页，直接清空显示无数据
                             adapter.showSinglePageData(null);
                         }
                     }

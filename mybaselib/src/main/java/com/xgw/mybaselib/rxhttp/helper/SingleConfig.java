@@ -35,46 +35,91 @@ public class SingleConfig {
     private String cachePath;
     private long maxCacheSize;
 
+    /**
+     * 设置baseUrl
+     * @param baseUrl
+     * @return
+     */
     public SingleConfig setBaseUrl(String baseUrl) {
         this.baseUrl = baseUrl;
         return this;
     }
 
+    /**
+     * 拦截的log是否显示
+     * @param isLogShow
+     * @return
+     */
     public SingleConfig isLogShow(boolean isLogShow) {
         this.isLogShow = isLogShow;
         return this;
     }
 
+    /**
+     * 读取超时时间
+     * @param readTimeout
+     * @return
+     */
     public SingleConfig setReadTimeout(long readTimeout) {
         this.readTimeout = readTimeout;
         return this;
     }
 
+    /**
+     * 写入超时时间
+     * @param writeTimeout
+     * @return
+     */
     public SingleConfig setWriteTimeout(long writeTimeout) {
         this.writeTimeout = writeTimeout;
         return this;
     }
 
+    /**
+     * 连接超时时间
+     * @param connectTimeout
+     * @return
+     */
     public SingleConfig setConnectTimeout(long connectTimeout) {
         this.connectTimeout = connectTimeout;
         return this;
     }
 
+    /**
+     * 设置自定义的okhttpclient
+     * @param okHttpClient
+     * @return
+     */
     public SingleConfig setOkHttpClient(OkHttpClient okHttpClient) {
         this.okHttpClient = okHttpClient;
         return this;
     }
 
+    /**
+     * 是否需要缓存
+     * @param needCache
+     * @return
+     */
     public SingleConfig setNeedCache(boolean needCache) {
         isNeedCache = needCache;
         return this;
     }
 
+    /**
+     * 设置缓存路径
+     * @param cachePath
+     * @return
+     */
     public SingleConfig setCachePath(String cachePath) {
         this.cachePath = cachePath;
         return this;
     }
 
+    /**
+     * 设置缓存大小
+     * @param maxCacheSize
+     * @return
+     */
     public SingleConfig setMaxCacheSize(long maxCacheSize) {
         this.maxCacheSize = maxCacheSize;
         return this;
@@ -138,11 +183,11 @@ public class SingleConfig {
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
             okHttpClientBuilder.addInterceptor(loggingInterceptor);
         }
-        okHttpClientBuilder.readTimeout(readTimeout > 0 ? readTimeout : 10, TimeUnit.SECONDS);
+        okHttpClientBuilder.readTimeout(readTimeout > 0 ? readTimeout : 30, TimeUnit.SECONDS);
 
-        okHttpClientBuilder.writeTimeout(writeTimeout > 0 ? writeTimeout : 10, TimeUnit.SECONDS);
+        okHttpClientBuilder.writeTimeout(writeTimeout > 0 ? writeTimeout : 30, TimeUnit.SECONDS);
 
-        okHttpClientBuilder.connectTimeout(connectTimeout > 0 ? connectTimeout : 10, TimeUnit.SECONDS);
+        okHttpClientBuilder.connectTimeout(connectTimeout > 0 ? connectTimeout : 30, TimeUnit.SECONDS);
         return okHttpClientBuilder;
     }
 }

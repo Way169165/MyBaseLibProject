@@ -1,36 +1,24 @@
 package com.xgw.mybaselibproject;
 
-import android.os.Environment;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.socks.library.KLog;
 import com.xgw.mybaselib.base.BaseActivity;
 import com.xgw.mybaselib.rxhttp.RxHttpUtils;
-import com.xgw.mybaselib.rxhttp.bean.BaseResponse;
-import com.xgw.mybaselib.rxhttp.helper.DownloadUtils;
 import com.xgw.mybaselib.rxhttp.helper.RxSchedulers;
 import com.xgw.mybaselib.rxhttp.progress.CountingRequestBody;
-import com.xgw.mybaselib.rxhttp.progress.ProgressResponseBody;
 import com.xgw.mybaselib.widget.roundview.view.RoundViewButton;
 
 import java.io.File;
-import java.net.SocketTimeoutException;
 import java.util.HashMap;
 import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.functions.Function;
 import io.reactivex.observers.DisposableObserver;
-import io.reactivex.schedulers.Schedulers;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
 
 /**
  * Created by XieGuangwei on 2017/11/9.

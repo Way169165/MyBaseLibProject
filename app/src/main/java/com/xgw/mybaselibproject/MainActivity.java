@@ -6,7 +6,6 @@ import android.view.View;
 import com.google.gson.Gson;
 import com.xgw.mybaselib.base.BaseActivity;
 import com.xgw.mybaselib.rxhttp.RxHttpUtils;
-import com.xgw.mybaselib.rxhttp.bean.BaseResponse;
 import com.xgw.mybaselib.rxhttp.helper.RxSchedulers;
 
 import java.util.List;
@@ -31,7 +30,7 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.global_btn, R.id.single_btn1, R.id.single_btn2, R.id.recycler_activity_btn, R.id.webview_btn, R.id.fragment_pager_btn, R.id.fragment_custom_btn, R.id.lazy_load_btn, R.id.custom_shape_btn, R.id.download_btn, R.id.upload_btn})
+    @OnClick({R.id.global_btn, R.id.single_btn1, R.id.single_btn2, R.id.recycler_activity_btn, R.id.recycler_load_more_activity_btn, R.id.webview_btn, R.id.fragment_pager_btn, R.id.fragment_custom_btn, R.id.lazy_load_btn, R.id.custom_shape_btn, R.id.download_btn, R.id.upload_btn})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.global_btn:
@@ -121,6 +120,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.recycler_activity_btn:
                 nextActivity(RecyclerTestActivity.class);
+                break;
+            case R.id.recycler_load_more_activity_btn:
+                nextActivity(RecyclerTestLoadMoreActivity.class);
                 break;
             case R.id.webview_btn:
                 nextActivity(WebViewTestActivity.class);

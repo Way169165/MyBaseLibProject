@@ -60,7 +60,11 @@ public abstract class BaseRecyclerAdapter<T> extends BaseQuickAdapter<T, BaseVie
                 setNewData(null);
                 setEmptyView(R.layout.no_data_layout);
             } else {
-                loadMoreFail();
+                if (data == null) {
+                    loadMoreFail();
+                } else if (data.size() == 0){
+                    loadMoreEnd();
+                }
             }
             return;
         }
