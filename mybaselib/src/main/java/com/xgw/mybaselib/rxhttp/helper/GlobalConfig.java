@@ -1,12 +1,18 @@
 package com.xgw.mybaselib.rxhttp.helper;
 
+import android.text.TextUtils;
 import android.util.Log;
 
+import com.xgw.mybaselib.rxhttp.cache.MyCacheInterceptor;
 import com.xgw.mybaselib.rxhttp.client.HttpClient;
 import com.xgw.mybaselib.rxhttp.client.RetrofitClient;
+import com.xgw.mybaselib.utils.Utils;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.Cache;
+import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 /**
@@ -89,6 +95,38 @@ public class GlobalConfig {
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
             HttpClient.getInstance().getBuilder().addInterceptor(loggingInterceptor);
         }
+        return this;
+    }
+
+    /**
+     * 开启缓存
+     *
+     * @return
+     */
+    public GlobalConfig setCache(String cachePath, long maxCacheSize) {
+        MyCacheInterceptor cacheInterceptor = new MyCacheInterceptor();
+        Cache cache;
+        //设置缓存路径不为空，切设置的缓存大小大于0，则新建缓存
+        if (!TextUtils.isEmpty(cachePath) && maxCacheSize > 0) {
+            cache = new Cache(new File(cachePath), maxCacheSize);
+        } else {
+            //否则默认缓存路径和大小
+            cache = new Cache(new File(Utils.getApp().getCacheDir() + "/cache")
+                    , 1024 * 1024 * 10);
+        }
+        HttpClient.getInstance().getBuilder().addInterceptor(cacheInterceptor)
+                .addNetworkInterceptor(cacheInterceptor)
+                .cache(cache);
+        return this;
+    }
+
+    /**
+     * 开启缓存
+     *
+     * @return
+     */
+    public GlobalConfig setCache() {
+        setCache(null, 0);
         return this;
     }
 

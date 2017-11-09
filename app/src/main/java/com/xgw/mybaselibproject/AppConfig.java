@@ -16,6 +16,7 @@ public class AppConfig extends Application {
         MyBaseLibDelegate.init(this);
         RxHttpUtils.getGlobalConfig()
                 .isShowLog(true)
+                .setCache()
                 .setBaseUrl(UrlConstants.BASE_URL)
                 .setConnectTimeout(10)
                 .setReadTimeout(10)

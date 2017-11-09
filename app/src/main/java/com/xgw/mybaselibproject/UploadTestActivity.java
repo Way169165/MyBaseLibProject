@@ -79,7 +79,7 @@ public class UploadTestActivity extends BaseActivity {
                     }
                 });
                 params.put("FileName\";filename=\"" + file.getName(), countingRequestBody);
-                RxHttpUtils.getSingleConfig()
+                RxHttpUtils.getUploadConfig()
                         .setBaseUrl("http://www.xxx.com/")
                         .createApi(ApiService.class)
                         .uploadFile(params)

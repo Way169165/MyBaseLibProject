@@ -3,6 +3,7 @@ package com.xgw.mybaselib.rxhttp;
 import com.xgw.mybaselib.rxhttp.helper.DownloadConfig;
 import com.xgw.mybaselib.rxhttp.helper.GlobalConfig;
 import com.xgw.mybaselib.rxhttp.helper.SingleConfig;
+import com.xgw.mybaselib.rxhttp.helper.UploadConfig;
 
 /**
  * Created by XieGuangwei on 2017/11/6.
@@ -34,5 +35,13 @@ public class RxHttpUtils {
      */
     public static DownloadConfig getDownloadConfig () {
         return new DownloadConfig();
+    }
+
+    /**
+     * 获取文件上传配置类
+     * @return
+     */
+    public static UploadConfig getUploadConfig () {
+        return new UploadConfig();
     }
 }
