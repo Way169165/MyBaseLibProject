@@ -130,7 +130,6 @@ public abstract class BaseRecyclerActivity<T, K> extends BaseActivity {
                     @Override
                     public void onError(Throwable e) {
                         adapter.setEnableLoadMore(isEnableLoadMore());
-                        onResultError(e);
                         swipeRefresh.setRefreshing(false);
                         if (isLoadMore) {
                             //是上拉加载，调用分页加载数据，底部显示加载失败点击重新加载
@@ -180,12 +179,6 @@ public abstract class BaseRecyclerActivity<T, K> extends BaseActivity {
      */
     protected abstract void onResultSuccess(T result, int pageNo);
 
-    /**
-     * 获取数据失败
-     *
-     * @param e
-     */
-    protected abstract void onResultError(Throwable e);
 
     /**
      * 获取recyclerView布局类型LINEAR_LAYOUT_MANAGER_TYPE/GRID_LAYOUT_MANAGER

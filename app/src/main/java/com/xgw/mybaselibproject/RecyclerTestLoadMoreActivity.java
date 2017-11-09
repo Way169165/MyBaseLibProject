@@ -56,11 +56,6 @@ public class RecyclerTestLoadMoreActivity extends BaseRecyclerActivity<BaseRespo
     }
 
     @Override
-    protected void onResultError(Throwable e) {
-
-    }
-
-    @Override
     protected int getLayoutManagerType() {
         return GRID_LAYOUT_MANAGER_TYPE;
     }

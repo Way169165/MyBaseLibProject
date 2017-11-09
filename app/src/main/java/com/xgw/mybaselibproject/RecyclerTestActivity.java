@@ -49,11 +49,6 @@ public class RecyclerTestActivity extends BaseRecyclerActivity<BaseResponse<List
     }
 
     @Override
-    protected void onResultError(Throwable e) {
-        adapter.showSinglePageData(null);
-    }
-
-    @Override
     protected int getLayoutManagerType() {
         return GRID_LAYOUT_MANAGER_TYPE;
     }

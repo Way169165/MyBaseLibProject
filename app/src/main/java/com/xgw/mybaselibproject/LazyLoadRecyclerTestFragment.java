@@ -1,5 +1,7 @@
 package com.xgw.mybaselibproject;
 
+import android.support.v4.content.ContextCompat;
+
 import com.socks.library.KLog;
 import com.xgw.mybaselib.base.BaseRecyclerAdapter;
 import com.xgw.mybaselib.base.BaseRecyclerFragment;
@@ -50,11 +52,6 @@ public class LazyLoadRecyclerTestFragment extends BaseRecyclerFragment<BaseRespo
     }
 
     @Override
-    protected void onResultError(Throwable e) {
-
-    }
-
-    @Override
     protected int getLayoutManagerType() {
         return GRID_LAYOUT_MANAGER_TYPE;
     }
@@ -66,7 +63,7 @@ public class LazyLoadRecyclerTestFragment extends BaseRecyclerFragment<BaseRespo
 
     @Override
     protected int[] getSwipeRefreshSchemaColors() {
-        return new int[]{R.color.colorPrimary};
+        return new int[]{ContextCompat.getColor(getContext(), R.color.colorPrimary)};
     }
 
     @Override
