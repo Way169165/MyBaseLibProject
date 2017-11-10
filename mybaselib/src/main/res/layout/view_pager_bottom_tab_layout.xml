@@ -15,10 +15,11 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#ffffff"
-        app:tabGravity="fill"
-        app:tabIndicatorColor="@color/colorAccent"
+        android:background="@color/white"
         app:tabBackground="@color/transparent"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@color/colorPrimary"
+        app:tabIndicatorHeight="0dp"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/colorAccent" />
+        app:tabSelectedTextColor="@color/colorPrimary" />
 </LinearLayout>

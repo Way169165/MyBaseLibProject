@@ -8,14 +8,6 @@
         <item name="android:windowAnimationStyle">@style/BaseAnimationActivity</item>
     </style>
 
-    <style name="Base.TransParent" parent="Base.AppTheme"></style>
-
-    <!--侧栏顶部完全透明主题-->
-    <style name="BaseTransParentTheme" parent="Base.TransParent">
-        <item name="colorPrimary">#3F51B5</item>
-        <item name="colorPrimaryDark">#3F51B5</item>
-    </style>
-
     <style name="BaseAppTheme" parent="Base.AppTheme">
         <item name="colorPrimary">#3F51B5</item>
         <item name="colorPrimaryDark">#3F51B5</item>
@@ -27,7 +19,7 @@
     </style>
 
     <style name="BaseAppThemeFullWithAlpha" parent="Base.AppTheme">
-        <!-- AppCompat主题 全屏方法 -->
+        <!-- AppCompat主题 全屏方法有动画的 -->
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowAnimationStyle">@style/BaseAnimationAlphaActivity</item>
     </style>

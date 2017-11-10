@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MainTheme" parent="BaseAppTheme">
+        <!--text style-->
+        <item name="colorPrimary">#1984d4</item>
+        <item name="colorPrimaryDark">#1984d4</item>
+    </style>
+
+    <style name="SubTheme" parent="BaseAppTheme">
+        <!--text style-->
+        <item name="colorPrimary">#FFFFFF</item>
+        <item name="colorPrimaryDark">#000000</item>
+    </style>
+</resources>

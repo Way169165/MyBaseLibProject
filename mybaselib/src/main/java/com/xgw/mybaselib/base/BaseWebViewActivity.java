@@ -4,10 +4,13 @@ import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 
 import com.xgw.mybaselib.R;
 
@@ -18,6 +21,7 @@ import com.xgw.mybaselib.R;
 @SuppressLint("JavascriptInterface")
 public abstract class BaseWebViewActivity extends BaseActivity {
     protected WebView webView;
+    protected ProgressBar progressBar;
 
     protected abstract String getUrl();
 
@@ -25,6 +29,7 @@ public abstract class BaseWebViewActivity extends BaseActivity {
     @Override
     public void initView() {
         webView = (WebView) findViewById(R.id.webView);
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setLoadWithOverviewMode(true);
@@ -59,16 +64,68 @@ public abstract class BaseWebViewActivity extends BaseActivity {
             webView.addJavascriptInterface(getJavaScriptInterface(), getNavWebManager());
         }
 
-        webView.loadUrl(getUrl());
+        //需要显示进度条才去添加
+        if (hasProgress()) {
+            webView.setWebChromeClient(new WebChromeClient() {
+                @Override
+                public void onProgressChanged(WebView view, int newProgress) {
+                    if (newProgress == 100) {
+                        dismissProgressLayout();
+                    } else {
+                        showProgressLayout();
+                        progressBar.setProgress(newProgress);
+                    }
+                    super.onProgressChanged(view, newProgress);
+                }
+            });
+        }
+
+        webView.post(new Runnable() {
+            @Override
+            public void run() {
+                webView.loadUrl(getUrl());
+            }
+        });
     }
 
+    /**
+     * 获取交互对象
+     *
+     * @return
+     */
     protected abstract Object getJavaScriptInterface();
 
+    /**
+     * 获取交互桥字符串
+     *
+     * @return
+     */
     protected abstract String getNavWebManager();
+
+    /**
+     * 是否需要进度条
+     *
+     * @return
+     */
+    protected abstract boolean hasProgress();
 
     @Override
     public void initData() {
 
+    }
+
+    /**
+     * 显示加载进度页面
+     */
+    private void showProgressLayout() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * 隐藏加载进度
+     */
+    private void dismissProgressLayout() {
+        progressBar.setVisibility(View.GONE);
     }
 
     @Override

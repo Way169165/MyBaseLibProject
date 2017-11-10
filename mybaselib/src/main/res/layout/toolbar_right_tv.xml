@@ -41,14 +41,14 @@
                         android:clickable="true"
                         android:drawablePadding="3dp"
                         android:gravity="center"
-                        android:paddingLeft="16dp"
-                        android:paddingRight="16dp"
-                        android:textColor="@color/toolbar_back"
-                        android:textSize="18sp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="17sp"
                         android:visibility="gone"
                         app:rv_backgroundColor="@color/transparent"
                         app:rv_backgroundColorPressed="@color/black_alpha_112"
-                        app:rv_drawableLeft="@drawable/ic_toolbar_back"
+                        app:rv_drawableLeft="@drawable/toolbar_back"
                         app:rv_isRippleEnable="true" />
 
                     <TextView
@@ -66,8 +66,7 @@
                         android:focusableInTouchMode="true"
                         android:gravity="center"
                         android:lines="1"
-                        android:tag="skin:toolbar_tv:textColor"
-                        android:textColor="@color/toolbar_tv"
+                        android:textColor="?android:attr/textColorPrimary"
                         android:textSize="20dp" />
 
                     <com.xgw.mybaselib.widget.roundview.view.RoundViewTextView
@@ -82,7 +81,7 @@
                         android:clickable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:textColor="@color/toolbar_back" />
+                        android:textColor="?android:attr/textColorPrimary" />
                 </RelativeLayout>
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.AppBarLayout>

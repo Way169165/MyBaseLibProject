@@ -15,19 +15,20 @@
         android:layout_marginTop="10dp"
         android:text="进度：0%" />
 
-    <com.xgw.mybaselib.widget.roundview.view.RoundViewButton
+    <com.xgw.mybaselib.widget.roundview.view.RoundViewTextView
         android:id="@+id/upload_btn"
         android:layout_width="200dp"
         android:layout_height="80dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
+        android:gravity="center"
         android:text="上传"
         android:textSize="20sp"
         app:rv_backgroundColor="@color/blue_500"
         app:rv_backgroundColorDisabled="@color/blue_200"
         app:rv_backgroundColorPressed="@color/blue_700"
+        app:rv_isRippleEnable="true"
         app:rv_radius="10dp"
         app:rv_textColor="@color/white"
-        app:rv_textColorDisabled="@color/white_alpha_64"
-        app:rv_isRippleEnable="true"/>
+        app:rv_textColorDisabled="@color/white_alpha_64" />
 </LinearLayout>

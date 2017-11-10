@@ -9,6 +9,7 @@ import com.xgw.mybaselib.rxhttp.RxHttpUtils;
 import com.xgw.mybaselib.rxhttp.helper.RxSchedulers;
 import com.xgw.mybaselib.rxhttp.progress.CountingRequestBody;
 import com.xgw.mybaselib.widget.roundview.view.RoundViewButton;
+import com.xgw.mybaselib.widget.roundview.view.RoundViewTextView;
 
 import java.io.File;
 import java.util.HashMap;
@@ -16,6 +17,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableObserver;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -28,7 +30,7 @@ public class UploadTestActivity extends BaseActivity {
     @BindView(R.id.progress_tv)
     TextView progressTv;
     @BindView(R.id.upload_btn)
-    RoundViewButton uploadBtn;
+    RoundViewTextView uploadBtn;
 
     @Override
     protected int getLayoutId() {
@@ -67,7 +69,7 @@ public class UploadTestActivity extends BaseActivity {
                     }
                 });
                 params.put("FileName\";filename=\"" + file.getName(), countingRequestBody);
-                RxHttpUtils.getUploadConfig()
+                Disposable disposable = RxHttpUtils.getUploadConfig()
                         .setBaseUrl("http://www.xxx.com/")
                         .createApi(ApiService.class)
                         .uploadFile(params)
@@ -93,7 +95,7 @@ public class UploadTestActivity extends BaseActivity {
 
                             }
                         });
-
+                disposables.add(disposable);
                 break;
         }
     }

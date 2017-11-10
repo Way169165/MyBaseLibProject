@@ -48,6 +48,16 @@ public class WebViewTestActivity extends BaseWebViewActivity {
         return null;
     }
 
+    /**
+     * 是否需要进度条
+     *
+     * @return
+     */
+    @Override
+    protected boolean hasProgress() {
+        return true;
+    }
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_web_view;

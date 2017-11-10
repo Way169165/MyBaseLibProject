@@ -22,6 +22,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
@@ -60,7 +61,7 @@ public class DownloadTestActivity extends BaseActivity {
             case R.id.download_btn:
                 downloadBtn.setEnabled(false);
                 downloadBtn.setText("正在下载...");
-                RxHttpUtils.getDownloadConfig()
+                Disposable disposable = RxHttpUtils.getDownloadConfig()
                         .setProgressListener(new ProgressResponseBody.ProgressListener() {
                             @Override
                             public void update(final long bytesRead, final long contentLength, boolean done) {
@@ -111,6 +112,7 @@ public class DownloadTestActivity extends BaseActivity {
 
                             }
                         });
+                disposables.add(disposable);
                 break;
         }
     }

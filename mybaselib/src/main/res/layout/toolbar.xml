@@ -39,14 +39,14 @@
                     android:clickable="true"
                     android:drawablePadding="3dp"
                     android:gravity="center"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:textColor="@color/toolbar_back"
-                    android:textSize="18sp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="17sp"
                     android:visibility="gone"
                     app:rv_backgroundColor="@color/transparent"
                     app:rv_backgroundColorPressed="@color/black_alpha_112"
-                    app:rv_drawableLeft="@drawable/ic_toolbar_back"
+                    app:rv_drawableLeft="@drawable/toolbar_back"
                     app:rv_isRippleEnable="true" />
 
                 <TextView
@@ -54,7 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textColor="@color/toolbar_tv"
+                    android:textColor="?android:attr/textColorPrimary"
                     android:textSize="20sp" />
             </android.support.v7.widget.Toolbar>
 

@@ -29,7 +29,7 @@ import io.reactivex.disposables.CompositeDisposable;
  * activity基类
  */
 
-public abstract class BaseActivity extends AppCompatActivity implements BaseViewInterface {
+public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 获得布局id
      *
@@ -56,6 +56,16 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         initView();
         initData();
     }
+
+    /**
+     * 初始化view
+     */
+    protected abstract void initView();
+
+    /**
+     * 初始化必要数据
+     */
+    protected abstract void initData();
 
     @Override
     protected void onResume() {
@@ -156,33 +166,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         rightTv.setText(tvTitle);
     }
 
-    /**
-     * 设置右边有button的标题栏
-     *
-     * @param hasBack
-     * @param title
-     * @param btnTitle
-     */
-    public void setToolbarRightBtn(boolean hasBack, String title, String btnTitle) {
-        initToolbar(hasBack, null, 0, title);
-        Button rightBtn = (Button) findViewById(R.id.right_btn);
-        rightBtn.setText(btnTitle);
-    }
-
-    /**
-     * 设置右边有button的标题栏
-     *
-     * @param hasBack
-     * @param backStr
-     * @param backImgResId
-     * @param title
-     * @param btnTitle
-     */
-    public void setToolbarRightBtn(boolean hasBack, String backStr, int backImgResId, String title, String btnTitle) {
-        initToolbar(hasBack, backStr, backImgResId, title);
-        Button rightBtn = (Button) findViewById(R.id.right_btn);
-        rightBtn.setText(btnTitle);
-    }
 
     /**
      * 初始化标题信息
@@ -213,7 +196,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
             if (backImgResId != 0) {
                 back.getConfig().setDrawableLeft(ContextCompat.getDrawable(this, backImgResId)).refresh();
             } else {
-                back.getConfig().setDrawableLeft(ContextCompat.getDrawable(this, R.drawable.ic_toolbar_back)).refresh();
+                back.getConfig().setDrawableLeft(ContextCompat.getDrawable(this, R.drawable.toolbar_back)).refresh();
             }
             back.setOnClickListener(new View.OnClickListener() {
                 @Override

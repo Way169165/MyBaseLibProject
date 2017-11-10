@@ -26,15 +26,16 @@
         app:rv_backgroundColor="@color/blue_500"
         app:rv_backgroundColorDisabled="@color/blue_200"
         app:rv_backgroundColorPressed="@color/blue_700"
+        app:rv_isRippleEnable="true"
         app:rv_radius="10dp"
+        app:rv_strokeWidth="4dp"
         app:rv_textColor="@color/white"
-        app:rv_textColorDisabled="@color/white_alpha_64"
-        app:rv_isRippleEnable="true"/>
+        app:rv_textColorDisabled="@color/white_alpha_64" />
 
     <ImageView
         android:id="@+id/display_iv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:scaleType="fitXY" />
 </LinearLayout>

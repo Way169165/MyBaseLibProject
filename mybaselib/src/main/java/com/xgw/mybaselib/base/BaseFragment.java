@@ -21,13 +21,14 @@ import io.reactivex.disposables.CompositeDisposable;
  * fragment基类
  */
 
-public abstract class BaseFragment extends Fragment implements BaseViewInterface{
+public abstract class BaseFragment extends Fragment {
     /**
      * 获得布局id
      *
      * @return
      */
     protected abstract int getLayoutId();
+
     protected CompositeDisposable disposables = new CompositeDisposable();
 
     @Override
@@ -39,16 +40,27 @@ public abstract class BaseFragment extends Fragment implements BaseViewInterface
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return View.inflate(getContext(),getLayoutId(),null);
+        return View.inflate(getContext(), getLayoutId(), null);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ButterKnife.bind(this,view);
+        ButterKnife.bind(this, view);
         initView();
         initData();
     }
+
+
+    /**
+     * 初始化view
+     */
+    protected abstract void initView();
+
+    /**
+     * 初始化必要数据
+     */
+    protected abstract void initData();
 
     @Override
     public void onDestroyView() {

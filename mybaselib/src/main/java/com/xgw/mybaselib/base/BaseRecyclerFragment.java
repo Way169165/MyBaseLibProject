@@ -1,6 +1,7 @@
 package com.xgw.mybaselib.base;
 
 import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -38,7 +39,7 @@ public abstract class BaseRecyclerFragment<T, K> extends BaseLazyFragment {
         recyclerView = (RecyclerView) getView().findViewById(R.id.recyclerView);
         swipeRefresh = (SwipeRefreshLayout) getView().findViewById(R.id.swipeRefresh);
         if (getSwipeRefreshSchemaColors() == null || getSwipeRefreshSchemaColors().length == 0) {
-            swipeRefresh.setColorSchemeColors(Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW);
+            swipeRefresh.setColorSchemeColors(ContextCompat.getColor(getContext(),R.color.colorPrimary));
         } else {
             swipeRefresh.setColorSchemeColors(getSwipeRefreshSchemaColors());
         }
