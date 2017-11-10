@@ -29,6 +29,7 @@
         app:rv_backgroundColorPressed="@color/blue_700"
         app:rv_isRippleEnable="true"
         app:rv_radius="10dp"
+        app:rv_strokeWidth="0.5dp"
         app:rv_textColor="@color/white"
         app:rv_textColorDisabled="@color/white_alpha_64" />
 </LinearLayout>

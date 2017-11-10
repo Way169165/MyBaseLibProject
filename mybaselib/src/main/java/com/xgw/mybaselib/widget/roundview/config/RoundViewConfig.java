@@ -598,7 +598,9 @@ public class RoundViewConfig implements BaseConfig {
             radiusArray[7] = radiusBottomLeft;
         }
         shape.setCornerRadii(radiusArray);
-        shape.setStroke(strokeWidth, strokeColor);
+        if (strokeWidth != 0) {
+            shape.setStroke(strokeWidth, strokeColor);
+        }
         return shape;
     }
 
