@@ -51,7 +51,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         AppManager.getAppManager().addActivity(this);
         EventBus.getDefault().register(this);
         ButterKnife.bind(this);
-
         //初始化操作
         initView();
         initData();
@@ -273,10 +272,28 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
+     * 设置标题栏底部阴影是否可见（默认是可见的）
+     * @param visible
+     */
+    public void setShadowLineVisibility(boolean visible) {
+        View shadowLine = findViewById(R.id.shadow_line);
+        shadowLine.setVisibility(visible?View.VISIBLE:View.GONE);
+    }
+
+    /**
      * 展示吐司
      */
     public void showToast(String message) {
         ToastUtils.showShort(message);
+    }
+
+    /**
+     * 自定义布局吐司
+     *
+     * @param customLayoutId
+     */
+    public void showToast(int customLayoutId) {
+        ToastUtils.showCustomShort(customLayoutId);
     }
 
     @Subscribe

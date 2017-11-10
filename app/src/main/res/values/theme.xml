@@ -2,8 +2,8 @@
 <resources>
     <style name="MainTheme" parent="BaseAppTheme">
         <!--text style-->
-        <item name="colorPrimary">#1984d4</item>
-        <item name="colorPrimaryDark">#1984d4</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
     </style>
 
     <style name="SubTheme" parent="BaseAppTheme">

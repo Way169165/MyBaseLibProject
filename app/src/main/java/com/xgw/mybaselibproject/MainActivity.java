@@ -1,7 +1,9 @@
 package com.xgw.mybaselibproject;
 
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.xgw.mybaselib.base.BaseActivity;
@@ -10,10 +12,13 @@ import com.xgw.mybaselib.rxhttp.helper.RxSchedulers;
 
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.OnClick;
 import io.reactivex.observers.DisposableObserver;
 
 public class MainActivity extends BaseActivity {
+    @BindView(R.id.title)
+    TextView titleTv;
 
     @Override
     protected int getLayoutId() {
@@ -23,6 +28,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initView() {
         setToolbarCenter(false, "测试项目");
+        titleTv.setTextColor(ContextCompat.getColor(this,R.color.white));
     }
 
     @Override

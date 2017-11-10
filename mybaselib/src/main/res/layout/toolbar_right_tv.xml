@@ -41,8 +41,8 @@
                         android:clickable="true"
                         android:drawablePadding="3dp"
                         android:gravity="center"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
+                        android:paddingLeft="13dp"
+                        android:paddingRight="13dp"
                         android:textColor="?android:attr/textColorPrimary"
                         android:textSize="17sp"
                         android:visibility="gone"
@@ -85,6 +85,13 @@
                 </RelativeLayout>
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.AppBarLayout>
+
+
+        <View
+            android:id="@+id/shadow_line"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/toolbar_shadow" />
     </LinearLayout>
 
 </merge>
