@@ -39,7 +39,7 @@ public class UploadTestActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        setToolbarCenter(true, "返回", 0, "上传");
+        setToolbarRightIv(true, "上传测试上传测试上传测试上传测试上传测试上传测试上传测试", R.mipmap.android);
     }
 
     @Override

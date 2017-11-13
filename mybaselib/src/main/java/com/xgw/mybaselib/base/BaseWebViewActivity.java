@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -57,6 +58,18 @@ public abstract class BaseWebViewActivity extends BaseActivity {
                 view.loadUrl(getUrl());
                 return true;
             }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                onFinished(view, url);
+            }
+
+            @Override
+            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                super.onReceivedError(view, request, error);
+                onError(view, request, error);
+            }
         });
 
         //注册javascript监听
@@ -76,6 +89,7 @@ public abstract class BaseWebViewActivity extends BaseActivity {
                         progressBar.setProgress(newProgress);
                     }
                     super.onProgressChanged(view, newProgress);
+                    onProgress(view, newProgress);
                 }
             });
         }
@@ -109,6 +123,37 @@ public abstract class BaseWebViewActivity extends BaseActivity {
      */
     protected abstract boolean hasProgress();
 
+    /**
+     * 加载进度（如果有选择有进度）
+     *
+     * @param view        当前加载的webview
+     * @param newProgress 进度
+     */
+    protected void onProgress(WebView view, int newProgress) {
+
+    }
+
+    /**
+     * 加载完毕
+     *
+     * @param view 加载的webview
+     * @param url  加载的url
+     */
+    protected void onFinished(WebView view, String url) {
+
+    }
+
+    /**
+     * 加载错误
+     *
+     * @param view    加载的webview
+     * @param request 请求信息
+     * @param error   错误信息
+     */
+    protected void onError(WebView view, WebResourceRequest request, WebResourceError error) {
+
+    }
+
     @Override
     public void initData() {
 
@@ -129,14 +174,11 @@ public abstract class BaseWebViewActivity extends BaseActivity {
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (webView.canGoBack()) {
-                webView.goBack();// 返回前一个页面
-            } else {
-                onBackPressed();
-            }
+    public void onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack();// 返回前一个页面
+        } else {
+            super.onBackPressed();
         }
-        return true;
     }
 }

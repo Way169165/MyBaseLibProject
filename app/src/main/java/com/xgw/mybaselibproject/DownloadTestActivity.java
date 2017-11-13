@@ -47,7 +47,7 @@ public class DownloadTestActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        setToolbarCenter(true,"返回",R.mipmap.android,"下载");
+        setToolbarRightIv(true,"返回",0,"测试下载测试下载测试下载测试下载测试下载测试下载",R.mipmap.android);
     }
 
     @Override

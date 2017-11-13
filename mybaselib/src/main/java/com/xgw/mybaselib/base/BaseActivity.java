@@ -9,12 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.xgw.mybaselib.AppManager;
 import com.xgw.mybaselib.R;
+import com.xgw.mybaselib.utils.SizeUtils;
 import com.xgw.mybaselib.utils.ToastUtils;
 import com.xgw.mybaselib.widget.roundview.view.RoundViewTextView;
 
@@ -191,6 +191,9 @@ public abstract class BaseActivity extends AppCompatActivity {
             back.setVisibility(View.VISIBLE);
             if (!TextUtils.isEmpty(backStr)) {
                 back.setText(backStr);
+                back.setPadding(SizeUtils.dp2px(8), 0, SizeUtils.dp2px(8), 0);
+            } else {
+                back.setPadding(SizeUtils.dp2px(15), 0, SizeUtils.dp2px(15), 0);
             }
             if (backImgResId != 0) {
                 back.getConfig().setDrawableLeft(ContextCompat.getDrawable(this, backImgResId)).refresh();
@@ -273,11 +276,12 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     /**
      * 设置标题栏底部阴影是否可见（默认是可见的）
+     *
      * @param visible
      */
     public void setShadowLineVisibility(boolean visible) {
         View shadowLine = findViewById(R.id.shadow_line);
-        shadowLine.setVisibility(visible?View.VISIBLE:View.GONE);
+        shadowLine.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     /**

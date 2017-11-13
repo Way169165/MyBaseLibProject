@@ -2,7 +2,7 @@ package com.xgw.mybaselibproject;
 
 import android.app.Application;
 
-import com.xgw.mybaselib.MyBaseLibDelegate;
+import com.xgw.mybaselib.MyBaseLibManager;
 import com.xgw.mybaselib.rxhttp.RxHttpUtils;
 
 /**
@@ -13,7 +13,7 @@ public class AppConfig extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        MyBaseLibDelegate.init(this);
+        MyBaseLibManager.getInstance().initUtils(this);
         RxHttpUtils.getGlobalConfig()
                 .isShowLog(true)
                 .setCache()

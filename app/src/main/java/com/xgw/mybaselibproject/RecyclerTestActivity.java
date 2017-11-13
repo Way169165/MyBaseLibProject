@@ -21,7 +21,7 @@ public class RecyclerTestActivity extends BaseRecyclerActivity<BaseResponse<List
 
     @Override
     public void initView() {
-        setToolbarCenter(true, "通用列表activity测试");
+        setToolbarCenter(true, "通用列表activity测试通用列表activity测试通用列表activity测试通用列表activity测试通用列表activity测试通用列表activity测试");
         super.initView();
     }
 
