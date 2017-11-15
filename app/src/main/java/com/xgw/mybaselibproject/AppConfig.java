@@ -13,7 +13,9 @@ public class AppConfig extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        MyBaseLibManager.getInstance().initUtils(this);
+        MyBaseLibManager.getInstance().
+                initUtils(this)
+                .initLog(BuildConfig.LOG_DEBUG);
         RxHttpUtils.getGlobalConfig()
                 .isShowLog(true)
                 .setCache()

@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import com.socks.library.KLog;
 import com.xgw.mybaselib.rxhttp.cache.MyCacheInterceptor;
 import com.xgw.mybaselib.utils.AppUtils;
 import com.xgw.mybaselib.utils.Utils;
@@ -177,7 +178,7 @@ public class SingleConfig {
             HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
                 @Override
                 public void log(String message) {
-                    Log.e("RxHttpUtils", message);
+                    KLog.e("RxHttpUtils", message);
                 }
             });
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);

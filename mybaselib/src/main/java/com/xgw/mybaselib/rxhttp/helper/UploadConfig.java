@@ -3,6 +3,7 @@ package com.xgw.mybaselib.rxhttp.helper;
 import android.util.Log;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import com.socks.library.KLog;
 
 import java.util.concurrent.TimeUnit;
 
@@ -92,7 +93,7 @@ public class UploadConfig {
             HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
                 @Override
                 public void log(String message) {
-                    Log.e("RxHttpUtils", message);
+                    KLog.e("RxHttpUtils", message);
                 }
             });
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);

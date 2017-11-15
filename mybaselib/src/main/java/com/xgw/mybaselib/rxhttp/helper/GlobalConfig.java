@@ -3,6 +3,7 @@ package com.xgw.mybaselib.rxhttp.helper;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.socks.library.KLog;
 import com.xgw.mybaselib.rxhttp.cache.MyCacheInterceptor;
 import com.xgw.mybaselib.rxhttp.client.HttpClient;
 import com.xgw.mybaselib.rxhttp.client.RetrofitClient;
@@ -89,7 +90,7 @@ public class GlobalConfig {
             HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
                 @Override
                 public void log(String message) {
-                    Log.e("RxHttpUtils", message);
+                    KLog.e("RxHttpUtils", message);
                 }
             });
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
