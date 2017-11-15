@@ -26,7 +26,7 @@ public class WebViewTestActivity extends BaseWebViewActivity {
 
     @Override
     public void initView() {
-        setToolbarRightTv(true, "返回", 0, "网页测试网页测试网页测试网页测试网页测试网页测试网页测试", "按钮样式");
+        setToolbarRightTv(true, "网页测试网页测试网页测试网页测试网页测试网页测试网页测试", "按钮样式");
         super.initView();
         rightTv.getConfig()
                 .setBackgroundColor(ContextCompat.getColor(this, R.color.white))

@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.xgw.mybaselib.AppManager;
+import com.xgw.mybaselib.MyBaseLibManager;
 import com.xgw.mybaselib.R;
 import com.xgw.mybaselib.utils.SizeUtils;
 import com.xgw.mybaselib.utils.ToastUtils;
@@ -94,19 +95,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param title
      */
     public void setToolbarCenter(boolean hasBack, String title) {
-        initToolbar(hasBack, null, 0, title);
-    }
-
-    /**
-     * 设置只有标题和返回按钮（如果有）的标题栏
-     *
-     * @param hasBack
-     * @param backStr
-     * @param backImgResId
-     * @param title
-     */
-    public void setToolbarCenter(boolean hasBack, String backStr, int backImgResId, String title) {
-        initToolbar(hasBack, backStr, backImgResId, title);
+        initToolbar(hasBack, title);
     }
 
     /**
@@ -117,22 +106,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param imgResId
      */
     public void setToolbarRightIv(boolean hasBack, String title, int imgResId) {
-        initToolbar(hasBack, null, 0, title);
-        ImageView image = (ImageView) findViewById(R.id.image);
-        image.setImageResource(imgResId);
-    }
-
-    /**
-     * 设置右边有ImageView的标题栏
-     *
-     * @param hasBack
-     * @param backStr
-     * @param backImgResId
-     * @param title
-     * @param imgResId
-     */
-    public void setToolbarRightIv(boolean hasBack, String backStr, int backImgResId, String title, int imgResId) {
-        initToolbar(hasBack, backStr, backImgResId, title);
+        initToolbar(hasBack, title);
         ImageView image = (ImageView) findViewById(R.id.image);
         image.setImageResource(imgResId);
     }
@@ -145,22 +119,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param tvTitle
      */
     public void setToolbarRightTv(boolean hasBack, String title, String tvTitle) {
-        initToolbar(hasBack, null, 0, title);
-        RoundViewTextView rightTv = (RoundViewTextView) findViewById(R.id.right_tv);
-        rightTv.setText(tvTitle);
-    }
-
-    /**
-     * 设置右边有TextView的标题栏
-     *
-     * @param hasBack
-     * @param backStr
-     * @param backImgResId
-     * @param title
-     * @param tvTitle
-     */
-    public void setToolbarRightTv(boolean hasBack, String backStr, int backImgResId, String title, String tvTitle) {
-        initToolbar(hasBack, backStr, backImgResId, title);
+        initToolbar(hasBack, title);
         RoundViewTextView rightTv = (RoundViewTextView) findViewById(R.id.right_tv);
         rightTv.setText(tvTitle);
     }
@@ -171,10 +130,8 @@ public abstract class BaseActivity extends AppCompatActivity {
      *
      * @param hasBack
      * @param title
-     * @param backImgResId
-     * @param backStr
      */
-    private void initToolbar(boolean hasBack, String backStr, int backImgResId, String title) {
+    private void initToolbar(boolean hasBack, String title) {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (TextUtils.isEmpty(title)) {
             title = getString(R.string.app_name);
@@ -189,14 +146,14 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (hasBack) {
             RoundViewTextView back = (RoundViewTextView) findViewById(R.id.toolbar_back);
             back.setVisibility(View.VISIBLE);
-            if (!TextUtils.isEmpty(backStr)) {
-                back.setText(backStr);
+            if (!TextUtils.isEmpty(MyBaseLibManager.getInstance().getBackStr())) {
+                back.setText(MyBaseLibManager.getInstance().getBackStr());
                 back.setPadding(SizeUtils.dp2px(8), 0, SizeUtils.dp2px(8), 0);
             } else {
                 back.setPadding(SizeUtils.dp2px(15), 0, SizeUtils.dp2px(15), 0);
             }
-            if (backImgResId != 0) {
-                back.getConfig().setDrawableLeft(ContextCompat.getDrawable(this, backImgResId)).refresh();
+            if (MyBaseLibManager.getInstance().getBackImgResId() != 0) {
+                back.getConfig().setDrawableLeft(ContextCompat.getDrawable(this, MyBaseLibManager.getInstance().getBackImgResId())).refresh();
             } else {
                 back.getConfig().setDrawableLeft(ContextCompat.getDrawable(this, R.drawable.toolbar_back)).refresh();
             }

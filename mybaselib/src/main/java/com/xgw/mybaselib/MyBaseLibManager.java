@@ -13,6 +13,9 @@ import com.xgw.mybaselib.utils.Utils;
 public class MyBaseLibManager {
     private static MyBaseLibManager instance;
 
+    private int backImgResId;
+    private String backStr;
+
     public static MyBaseLibManager getInstance() {
         if (instance == null) {
             synchronized (MyBaseLibManager.class) {
@@ -40,5 +43,23 @@ public class MyBaseLibManager {
     public MyBaseLibManager initLog(boolean isShowLog) {
         KLog.init(isShowLog);
         return this;
+    }
+
+    public MyBaseLibManager setBackImgResId (int backImgResId) {
+        this.backImgResId = backImgResId;
+        return this;
+    }
+
+    public MyBaseLibManager setBackStr (String backStr) {
+        this.backStr = backStr;
+        return this;
+    }
+
+    public int getBackImgResId() {
+        return backImgResId;
+    }
+
+    public String getBackStr() {
+        return backStr;
     }
 }

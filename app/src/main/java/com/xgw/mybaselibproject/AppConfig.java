@@ -15,7 +15,8 @@ public class AppConfig extends Application {
         super.onCreate();
         MyBaseLibManager.getInstance().
                 initUtils(this)
-                .initLog(BuildConfig.LOG_DEBUG);
+                .initLog(BuildConfig.LOG_DEBUG)
+                .setBackStr("返回");
         RxHttpUtils.getGlobalConfig()
                 .isShowLog(true)
                 .setCache()
