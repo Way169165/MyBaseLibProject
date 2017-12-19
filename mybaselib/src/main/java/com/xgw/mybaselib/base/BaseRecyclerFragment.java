@@ -21,7 +21,7 @@ import io.reactivex.observers.DisposableObserver;
  * 列表拉取数据的fragment基类
  */
 
-public abstract class BaseRecyclerFragment<T, K> extends BaseLazyFragment {
+public abstract class BaseRecyclerFragment<T, K> extends BaseLazyFragment implements SwipeRefreshLayout.OnRefreshListener {
     protected BaseRecyclerAdapter<K> adapter;
     protected SwipeRefreshLayout swipeRefresh;
     protected RecyclerView recyclerView;
@@ -56,14 +56,7 @@ public abstract class BaseRecyclerFragment<T, K> extends BaseLazyFragment {
         int pageSize = 10;
         adapter.setPageSize(pageSize);
         //下拉刷新
-        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                //刷新时禁用上拉加载
-                adapter.setEnableLoadMore(false);
-                handleData(false, true);
-            }
-        });
+        swipeRefresh.setOnRefreshListener(this);
         //设置是否可上拉加载
         adapter.setEnableLoadMore(isEnableLoadMore());
         //如果能上拉加载，监听上拉加载
@@ -218,4 +211,11 @@ public abstract class BaseRecyclerFragment<T, K> extends BaseLazyFragment {
      * @return
      */
     protected abstract int[] getSwipeRefreshSchemaColors();
+
+    @Override
+    public void onRefresh() {
+        //刷新时禁用上拉加载
+        adapter.setEnableLoadMore(false);
+        handleData(false, true);
+    }
 }

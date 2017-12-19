@@ -21,7 +21,7 @@ import io.reactivex.observers.DisposableObserver;
  * 列表拉取数据的activity基类
  */
 
-public abstract class BaseRecyclerActivity<T, K> extends BaseActivity {
+public abstract class BaseRecyclerActivity<T, K> extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener {
     protected BaseRecyclerAdapter<K> adapter;
     protected SwipeRefreshLayout swipeRefresh;
     protected RecyclerView recyclerView;
@@ -52,14 +52,7 @@ public abstract class BaseRecyclerActivity<T, K> extends BaseActivity {
         recyclerView.setAdapter(adapter);
         int pageSize = 10;
         adapter.setPageSize(pageSize);
-        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                //刷新时禁用上拉加载
-                adapter.setEnableLoadMore(false);
-                handleData(false, true);
-            }
-        });
+        swipeRefresh.setOnRefreshListener(this);
 
         //设置是否可上拉加载
         adapter.setEnableLoadMore(isEnableLoadMore());
@@ -201,4 +194,11 @@ public abstract class BaseRecyclerActivity<T, K> extends BaseActivity {
      * @return
      */
     protected abstract int[] getSwipeRefreshSchemaColors();
+
+    @Override
+    public void onRefresh() {
+        //刷新时禁用上拉加载
+        adapter.setEnableLoadMore(false);
+        handleData(false, true);
+    }
 }
