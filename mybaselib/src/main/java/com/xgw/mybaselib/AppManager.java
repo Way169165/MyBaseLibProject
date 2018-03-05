@@ -23,7 +23,7 @@ public class AppManager {
         }
 
         if(activityStack == null) {
-            activityStack = new Stack();
+            activityStack = new Stack<>();
         }
 
         return instance;
@@ -101,8 +101,8 @@ public class AppManager {
     public void AppExit() {
         try {
             this.finishAllActivity();
-        } catch (Exception var2) {
-            ;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }

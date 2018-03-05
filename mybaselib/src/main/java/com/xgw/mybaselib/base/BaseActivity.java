@@ -81,7 +81,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         //将activity移出管理栈
-        AppManager.getAppManager().finishActivity(this);
+        AppManager.getAppManager().removeActivity(this);
         if (disposables != null && disposables.size() > 0) {
             disposables.clear();
         }
