@@ -112,6 +112,20 @@ public abstract class BaseFragment extends Fragment {
     }
 
     /**
+     * 带返回参数的跳转，传递参数
+     * @param cls
+     * @param requestCode
+     * @param bundle
+     */
+    public void nextActivityForResult(Class<?> cls,int requestCode,Bundle bundle) {
+        Intent intent = new Intent(getContext(),cls);
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+        this.startActivityForResult(intent,requestCode);
+    }
+
+    /**
      * 展示吐司
      */
     public void showToast(String message) {
