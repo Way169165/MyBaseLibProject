@@ -98,7 +98,7 @@ public class AppManager {
         activityStack.clear();
     }
 
-    public boolean isStackEmpty() {
+    public boolean isStackNotEmpty() {
         return activityStack != null && activityStack.size() > 0;
     }
 
