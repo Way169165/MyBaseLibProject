@@ -102,6 +102,10 @@ public class AppManager {
         return activityStack != null && activityStack.size() > 0;
     }
 
+    public Stack<Activity> getActivities() {
+        return activityStack;
+    }
+
     public void AppExit() {
         try {
             this.finishAllActivity();
