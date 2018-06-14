@@ -22,7 +22,6 @@ import com.xgw.mybaselib.R;
 @SuppressLint("JavascriptInterface")
 public abstract class BaseWebViewActivity extends BaseActivity {
     protected WebView webView;
-    protected ProgressBar progressBar;
 
     protected abstract String getUrl();
 
@@ -30,7 +29,6 @@ public abstract class BaseWebViewActivity extends BaseActivity {
     @Override
     public void initView() {
         webView = (WebView) findViewById(R.id.webView);
-        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setLoadWithOverviewMode(true);
@@ -78,21 +76,13 @@ public abstract class BaseWebViewActivity extends BaseActivity {
         }
 
         //需要显示进度条才去添加
-        if (hasProgress()) {
-            webView.setWebChromeClient(new WebChromeClient() {
-                @Override
-                public void onProgressChanged(WebView view, int newProgress) {
-                    if (newProgress == 100) {
-                        dismissProgressLayout();
-                    } else {
-                        showProgressLayout();
-                        progressBar.setProgress(newProgress);
-                    }
-                    super.onProgressChanged(view, newProgress);
-                    onProgress(view, newProgress);
-                }
-            });
-        }
+        webView.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public void onProgressChanged(WebView view, int newProgress) {
+                super.onProgressChanged(view, newProgress);
+                onProgress(view, newProgress);
+            }
+        });
 
         webView.post(new Runnable() {
             @Override
@@ -115,13 +105,6 @@ public abstract class BaseWebViewActivity extends BaseActivity {
      * @return
      */
     protected abstract String getNavWebManager();
-
-    /**
-     * 是否需要进度条
-     *
-     * @return
-     */
-    protected abstract boolean hasProgress();
 
     /**
      * 加载进度（如果有选择有进度）
@@ -157,20 +140,6 @@ public abstract class BaseWebViewActivity extends BaseActivity {
     @Override
     public void initData() {
 
-    }
-
-    /**
-     * 显示加载进度页面
-     */
-    private void showProgressLayout() {
-        progressBar.setVisibility(View.VISIBLE);
-    }
-
-    /**
-     * 隐藏加载进度
-     */
-    private void dismissProgressLayout() {
-        progressBar.setVisibility(View.GONE);
     }
 
     @Override

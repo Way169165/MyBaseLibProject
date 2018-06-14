@@ -55,16 +55,6 @@ public class WebViewTestActivity extends BaseWebViewActivity {
     }
 
     /**
-     * 是否需要进度条
-     *
-     * @return
-     */
-    @Override
-    protected boolean hasProgress() {
-        return true;
-    }
-
-    /**
      * 加载进度（如果有选择有进度）
      *
      * @param view        当前加载的webview
